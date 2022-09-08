@@ -7,27 +7,27 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.laundry.LoginFragment"
+        android:name="com.laundry.presentation.entrance.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/signupFragment"
-        android:name="com.laundry.SignupFragment"
+        android:name="com.laundry.presentation.entrance.SignupFragment"
         android:label="fragment_signup"
         tools:layout="@layout/fragment_signup" />
     <fragment
         android:id="@+id/homeClientFragment"
-        android:name="com.laundry.HomeClientFragment"
+        android:name="com.laundry.presentation.client.HomeClientFragment"
         android:label="fragment_home_client"
         tools:layout="@layout/fragment_home_client" />
     <fragment
         android:id="@+id/homeServiceProviderFragment"
-        android:name="com.laundry.HomeServiceProviderFragment"
+        android:name="com.laundry.presentation.serviceprovider.HomeServiceProviderFragment"
         android:label="fragment_home_service_provider"
         tools:layout="@layout/fragment_home_service_provider" />
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.laundry.SplashFragment"
+        android:name="com.laundry.presentation.splash.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" />
 </navigation>
