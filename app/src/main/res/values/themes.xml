@@ -36,4 +36,6 @@
     <item name="colorAccent">#ef6c00</item>
 
     </style>
+
+    <style name="Theme.NewSplash" parent="Theme.Laundry" />
 </resources>
