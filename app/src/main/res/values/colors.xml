@@ -9,8 +9,8 @@
     <color name="white">#FFFFFFFF</color>
 
 
-    <color name="light_grey_200">#F2F2F2</color>
-    <color name="light_blue_500">#0083FF</color>
+    <color name="light_grey_200">#b0bec5</color>
+    <color name="light_grey_500">#607d8b</color>
     <color name="light_grey_700">#455a64</color>
     <color name="colorPrimaryGrey">#455a64</color>
     <color name="colorPrimaryDarkGrey">#263238</color>
