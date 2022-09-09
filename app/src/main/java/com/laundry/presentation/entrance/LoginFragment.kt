@@ -23,7 +23,7 @@ class LoginFragment
         super.onViewCreated(view, savedInstanceState)
 
         //go to signup screen
-        binding.signUpButton.setOnClickListener { it1 ->
+        binding.serviceProviderButton.setOnClickListener { it1 ->
 
             Navigation.findNavController(it1)
                 .navigate(R.id.action_loginFragment_to_signupFragment)
@@ -31,8 +31,8 @@ class LoginFragment
         }
 
         binding.loginButton.setOnClickListener {
-            val email = binding.emailEditText.text.toString()
-            val password = binding.passwordEditText.text.toString()
+            val email = binding.editTextTextEmailAddress.text.toString()
+            val password = binding.editTextTextPassword.text.toString()
 
             val myPost = LoginRequest(email, password)
             viewModel.pushLogin(myPost)
