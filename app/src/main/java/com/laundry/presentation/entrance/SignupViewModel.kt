@@ -2,8 +2,8 @@ package com.laundry.presentation.entrance
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.laundry.data.remote.api.EntranceApi
 import com.laundry.domain.entity.Registration
+import com.laundry.domain.usecases.EntranceUsecase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SignupViewModel @Inject constructor(
-    private val repo: EntranceApi
+    private val repo: EntranceUsecase
 ) : ViewModel() {
 
     private val _signup = MutableSharedFlow<Response<Void>>()
