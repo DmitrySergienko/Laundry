@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.NewSplash" parent="Theme.SplashScreen">
         <item name="postSplashScreenTheme">@style/Theme.Laundry</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_laundry</item>
         <item name="windowSplashScreenBackground">@color/white</item>
 
 

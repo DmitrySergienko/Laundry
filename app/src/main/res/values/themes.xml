@@ -18,22 +18,22 @@
     //-----MyTheme Grey
 
     <style name="CustomTheme" parent="Theme.Laundry">
-    <!-- Primary brand color. -->
-    <item name="colorPrimaryVariant">@color/light_blue_500</item>
-    <item name="colorOnPrimary">@color/white</item>
+        <!-- Primary brand color. -->
+        <item name="colorPrimaryVariant">@color/light_grey_700</item>
+        <item name="colorOnPrimary">@color/white</item>
 
-    <!-- Secondary brand color. -->
-    <item name="colorSecondary">@color/light_blue_500</item>
-    <item name="colorSecondaryVariant">@color/light_grey_200</item>
-    <item name="colorOnSecondary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/light_grey_700</item>
+        <item name="colorOnSecondary">@color/black</item>
 
-    <!-- Status bar color. -->
-    <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
 
-    <!-- Customize your theme here. -->
-    <item name="colorPrimary">@color/light_grey_200</item>
-    <item name="colorPrimaryDark">@color/colorPrimaryDarkGrey</item>
-    <item name="colorAccent">#ef6c00</item>
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimaryGrey</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkGrey</item>
+        <item name="colorAccent">#ef6c00</item>
 
     </style>
 
