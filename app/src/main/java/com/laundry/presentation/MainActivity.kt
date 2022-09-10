@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.view.animation.AnticipateInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
@@ -20,12 +21,26 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Hide the status bar
+        statusbarhide()
 
         //Splash Screen launch
         splashScreenLaunch()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+    }
+
+    private fun statusbarhide(){
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        actionBar?.hide()
+
+        // If the Android version is lower than Jellybean, use this call to hide
+        // the status bar.
+        if (Build.VERSION.SDK_INT < 16) {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN)}
     }
 
     private fun splashScreenLaunch() {
