@@ -6,11 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import com.laundry.R
+import com.laundry.databinding.FragmentLoginBinding
+import com.laundry.presentation.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginFragment: Fragment(){
+class LoginFragment
+    : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate){
 
 
     private val viewModel: LoginViewModel by viewModels()
@@ -24,12 +28,12 @@ class LoginFragment: Fragment(){
 
 
         //go to signup screen
-//        binding.serviceProviderButton.setOnClickListener { it1 ->
-//
-//            Navigation.findNavController(it1)
-//                .navigate(R.id.action_loginFragment_to_signupFragment)
-//
-//        }
+        binding.serviceProviderButton.setOnClickListener { it1 ->
+
+            Navigation.findNavController(it1)
+                .navigate(R.id.action_loginFragment_to_homeServiceProviderFragment2)
+
+        }
 
 
 
