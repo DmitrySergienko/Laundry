@@ -19,5 +19,7 @@
     <!-- View pager names of fragments -->
     <string name="LOGIN">LOGIN</string>
     <string name="SIGNUP">SIGNUP</string>
+    <string name="content_description_person">Ic_person_app_bar</string>
+    <string name="content_description_favorite">ic_person</string>
 
 </resources>

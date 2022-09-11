@@ -1,9 +1,6 @@
 package com.laundry.di
 
 import com.laundry.data.remote.api.EntranceApi
-import com.laundry.data.remote.repository.EntranceUsecaseImpl
-import com.laundry.domain.usecases.EntranceUsecase
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

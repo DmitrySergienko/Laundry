@@ -9,7 +9,6 @@ import android.view.animation.AnticipateInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.laundry.R
 import com.laundry.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.concurrent.Executors
