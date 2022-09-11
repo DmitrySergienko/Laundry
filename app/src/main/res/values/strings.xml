@@ -16,4 +16,8 @@
     <string name="back">back</string>
     <string name="Access_Done">ACCESS SUCCESS</string>
 
+    <!-- View pager names of fragments -->
+    <string name="LOGIN">LOGIN</string>
+    <string name="SIGNUP">SIGNUP</string>
+
 </resources>

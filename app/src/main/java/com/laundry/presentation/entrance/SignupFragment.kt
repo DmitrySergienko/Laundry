@@ -1,18 +1,11 @@
 package com.laundry.presentation.entrance
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation
-import com.laundry.R
 import com.laundry.databinding.FragmentSignupBinding
-import com.laundry.domain.entity.Registration
 import com.laundry.presentation.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
 class SignupFragment
@@ -63,6 +56,11 @@ class SignupFragment
 //        }
 
 
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() = SignupFragment()
     }
 
 }
