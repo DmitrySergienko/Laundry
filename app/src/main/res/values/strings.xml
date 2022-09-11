@@ -16,10 +16,12 @@
     <string name="back">back</string>
     <string name="Access_Done">ACCESS SUCCESS</string>
 
+
     <!-- View pager names of fragments -->
     <string name="LOGIN">LOGIN</string>
     <string name="SIGNUP">SIGNUP</string>
     <string name="content_description_person">Ic_person_app_bar</string>
     <string name="content_description_favorite">ic_person</string>
+    <string name="client_home_text_subscribe">Subscribe to Laundry+ to get monthly worth of laundry</string>
 
 </resources>
