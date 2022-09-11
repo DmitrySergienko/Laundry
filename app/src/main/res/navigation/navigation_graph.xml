@@ -33,7 +33,11 @@
         android:id="@+id/homeClientFragment"
         android:name="com.laundry.presentation.client.HomeClientFragment"
         android:label="fragment_home_client"
-        tools:layout="@layout/fragment_home_client" />
+        tools:layout="@layout/fragment_home_client" >
+        <action
+            android:id="@+id/action_homeClientFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/homeServiceProviderFragment"
         android:name="com.laundry.presentation.serviceprovider.HomeServiceProviderFragment"
