@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_loginFragment_to_homeServiceProviderFragment2"
             app:destination="@id/homeServiceProviderFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeClientFragment"
+            app:destination="@id/homeClientFragment" />
     </fragment>
     <fragment
         android:id="@+id/signupFragment"
@@ -45,5 +48,9 @@
         android:id="@+id/mainFragment"
         android:name="com.laundry.presentation.entrance.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_homeClientFragment"
+            app:destination="@id/homeClientFragment" />
+    </fragment>
 </navigation>
