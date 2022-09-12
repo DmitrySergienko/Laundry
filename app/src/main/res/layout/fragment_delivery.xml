@@ -33,7 +33,7 @@
 
 
                     <ImageButton
-                        android:id="@+id/imageButton"
+                        android:id="@+id/backButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -294,7 +294,7 @@
                     app:layout_constraintTop_toTopOf="@+id/textView20" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/login_button"
+                    android:id="@+id/proceed_to_payment_button"
                     android:layout_width="320dp"
                     android:layout_height="70dp"
                     android:layout_marginTop="40dp"

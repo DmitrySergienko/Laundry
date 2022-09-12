@@ -31,5 +31,10 @@ class HomeClientFragment
                 Navigation.findNavController(it1).navigate(R.id.action_homeClientFragment_to_mainFragment)
             }
         }
+        binding.homeContinueButton.setOnClickListener {
+            view.let { it1 ->
+                Navigation.findNavController(it1).navigate(R.id.action_homeClientFragment_to_deliveryFragment)
+            }
+        }
     }
 }

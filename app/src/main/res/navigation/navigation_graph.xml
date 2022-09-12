@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/deliveryFragment">
+    app:startDestination="@id/homeClientFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -64,5 +64,9 @@
         android:id="@+id/deliveryFragment"
         android:name="com.laundry.DeliveryFragment"
         android:label="fragment_delivery"
-        tools:layout="@layout/fragment_delivery" />
+        tools:layout="@layout/fragment_delivery" >
+        <action
+            android:id="@+id/action_deliveryFragment_to_homeClientFragment"
+            app:destination="@id/homeClientFragment" />
+    </fragment>
 </navigation>
