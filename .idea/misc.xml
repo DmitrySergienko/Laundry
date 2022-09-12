@@ -11,8 +11,9 @@
         <entry key="..\:/Users/DmitrySergienko/AndroidStudioProjects/Laundry/app/src/main/res/drawable/ic_laundry.xml" value="0.136" />
         <entry key="..\:/Users/DmitrySergienko/AndroidStudioProjects/Laundry/app/src/main/res/drawable/ic_person.xml" value="0.131" />
         <entry key="..\:/Users/DmitrySergienko/AndroidStudioProjects/Laundry/app/src/main/res/layout/activity_main.xml" value="0.35104166666666664" />
+        <entry key="..\:/Users/DmitrySergienko/AndroidStudioProjects/Laundry/app/src/main/res/layout/drop_down_item_home.xml" value="0.35" />
         <entry key="..\:/Users/DmitrySergienko/AndroidStudioProjects/Laundry/app/src/main/res/layout/fragment_delivery.xml" value="0.25" />
-        <entry key="..\:/Users/DmitrySergienko/AndroidStudioProjects/Laundry/app/src/main/res/layout/fragment_home_client.xml" value="0.25" />
+        <entry key="..\:/Users/DmitrySergienko/AndroidStudioProjects/Laundry/app/src/main/res/layout/fragment_home_client.xml" value="0.22" />
         <entry key="..\:/Users/DmitrySergienko/AndroidStudioProjects/Laundry/app/src/main/res/layout/fragment_home_service_provider.xml" value="0.17760416666666667" />
         <entry key="..\:/Users/DmitrySergienko/AndroidStudioProjects/Laundry/app/src/main/res/layout/fragment_login.xml" value="0.4114285714285714" />
         <entry key="..\:/Users/DmitrySergienko/AndroidStudioProjects/Laundry/app/src/main/res/layout/fragment_signup.xml" value="0.33" />

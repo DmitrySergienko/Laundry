@@ -3,6 +3,7 @@ package com.laundry.presentation.client
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.Navigation
@@ -18,6 +19,15 @@ class HomeClientFragment
 
     private var increment = 0
 
+    override fun onResume() {
+        super.onResume()
+
+        //drop down item adapter
+        val items = resources.getStringArray(R.array.drop_down_home_item)
+        val arrayAdapter = ArrayAdapter(requireContext(),R.layout.drop_down_item_home,items)
+        binding.autoCompleteHomeItem.setAdapter(arrayAdapter)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -26,7 +36,11 @@ class HomeClientFragment
             itemCount(buttonPlus, buttonMinus, textView12)
             itemCount(buttonPlus2, buttonMinus2, textView122)
             itemCount(buttonPlus3, buttonMinus3, textView123)
+
+
         }
+
+
 
 
         binding.homeButton.setOnClickListener {

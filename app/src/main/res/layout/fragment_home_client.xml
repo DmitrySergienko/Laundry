@@ -60,8 +60,8 @@
         android:layout_width="344dp"
         android:layout_height="95dp"
         android:layout_marginStart="10dp"
-        android:layout_marginEnd="1dp"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="1dp"
         android:foregroundGravity="center"
         app:cardCornerRadius="30dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -88,35 +88,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="18dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Iron"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/imageView3"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/poppins_bold"
-                android:text="T-Shirt"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@+id/imageView3"
-                app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
-            <ImageView
-                android:id="@+id/imageView4"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/drop_item_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
-                app:layout_constraintBottom_toBottomOf="@+id/textView10"
-                app:layout_constraintStart_toEndOf="@+id/textView10"
-                app:layout_constraintTop_toTopOf="@+id/textView10" />
+                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toBottomOf="@+id/textView9">
+
+                <AutoCompleteTextView
+                    android:id="@+id/auto_complete_home_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="5dp"
+                    android:layout_weight="1"
+                    android:inputType="none"
+                    android:text="T-shirt"
+                    android:backgroundTint="@color/white"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
 
 
             <com.google.android.material.button.MaterialButton
@@ -124,14 +122,14 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="30dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="74dp"
+                android:layout_marginStart="86dp"
                 android:backgroundTint="@color/light_grey_200"
                 android:text="-"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:cornerRadius="100dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView4"
+                app:layout_constraintStart_toEndOf="@+id/drop_item_layout"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -171,10 +169,10 @@
         android:id="@+id/client_home_item2"
         android:layout_width="344dp"
         android:layout_height="95dp"
-        android:foregroundGravity="center"
         android:layout_marginStart="10dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="1dp"
+        android:foregroundGravity="center"
         app:cardCornerRadius="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -260,16 +258,16 @@
                 app:layout_constraintTop_toTopOf="@+id/button_minus2" />
 
             <com.google.android.material.button.MaterialButton
-                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:id="@+id/button_plus2"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="30dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="10dp"
-                android:text="+"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                app:cornerRadius="100dp"
                 android:backgroundTint="@color/light_grey_200"
+                android:text="+"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:cornerRadius="100dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView122"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -371,23 +369,23 @@
                 app:layout_constraintTop_toTopOf="@+id/button_minus3" />
 
             <com.google.android.material.button.MaterialButton
-                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:id="@+id/button_plus3"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="30dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="10dp"
-                android:text="+"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                app:cornerRadius="100dp"
                 android:backgroundTint="@color/light_grey_200"
+                android:text="+"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:cornerRadius="100dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView123"
                 app:layout_constraintTop_toTopOf="parent" />
 
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/home_continue_button"
