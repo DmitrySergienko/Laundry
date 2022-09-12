@@ -19,119 +19,122 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginBottom="422dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="Email"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="44dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Email"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
-        <EditText
-            android:id="@+id/editTextTextEmailAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="6dp"
-            android:ems="10"
-            android:fontFamily="@font/poppins_black"
-            android:hint="areous@goldville.org"
-            android:inputType="textEmailAddress"
-            android:textColorHint="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                <EditText
+                    android:id="@+id/editTextTextEmailAddress"
+                    android:layout_width="314dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins_black"
+                    android:hint="areous@goldville.org"
+                    android:inputType="textEmailAddress"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="264dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="Password"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="264dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Password"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
 
-        <EditText
-            android:id="@+id/editTextTextPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:ems="10"
-            android:fontFamily="@font/poppins_black"
-            android:hint="......."
-            android:inputType="textPassword"
-            android:minHeight="48dp"
-            android:textColorHint="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                <EditText
+                    android:id="@+id/editTextTextPassword"
+                    android:layout_width="314dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins_black"
+                    android:hint="......."
+                    android:inputType="textPassword"
+                    android:minHeight="48dp"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress"
+                    app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
+                    app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/forgot_password_button"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins_black"
-            android:text="Forgot password?"
-            android:textAllCaps="false"
-            android:textColor="@color/blue_new"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/service_provider_button"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/forgot_password_button"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:fontFamily="@font/poppins_black"
+                    android:text="Forgot password?"
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/service_provider_button"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins_black"
-            android:text="Service provider"
-            android:textAllCaps="false"
-            android:textColor="@color/blue_new"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toStartOf="@+id/forgot_password_button"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+                    android:textAllCaps="false"
+                    android:textColor="@color/blue_new"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/service_provider_button"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/service_provider_button"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/poppins_black"
+                    android:text="Service provider"
+                    android:textAllCaps="false"
+
+                    android:textColor="@color/blue_new"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toStartOf="@+id/forgot_password_button"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
 
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/login_button"
-            android:layout_width="320dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="80dp"
-            android:backgroundTint="@color/blue_new"
-            android:fontFamily="@font/poppins_bold"
-            android:text="Login"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="17sp"
-            app:cornerRadius="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/forgot_password_button" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/login_button"
+                    android:layout_width="320dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="100dp"
+                    android:backgroundTint="@color/blue_new"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Login"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    app:cornerRadius="30dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/forgot_password_button" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

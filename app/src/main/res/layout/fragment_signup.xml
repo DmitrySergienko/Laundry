@@ -41,7 +41,7 @@
 
                     <EditText
                         android:id="@+id/et_name"
-                        android:layout_width="wrap_content"
+                        android:layout_width="314dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="50dp"
                         android:layout_marginTop="6dp"
@@ -49,6 +49,7 @@
                         android:fontFamily="@font/poppins_black"
                         android:hint="Areous Ahmad"
                         android:inputType="textEmailAddress"
+                        android:maxLines="1"
                         android:textColorHint="@color/black"
                         android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +60,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="50dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="24dp"
                         android:fontFamily="@font/poppins_bold"
                         android:text="Email address"
                         android:textSize="15sp"
@@ -69,7 +70,7 @@
 
                     <EditText
                         android:id="@+id/edt_email"
-                        android:layout_width="wrap_content"
+                        android:layout_width="314dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="50dp"
                         android:layout_marginTop="6dp"
@@ -87,7 +88,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="50dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="24dp"
                         android:fontFamily="@font/poppins_bold"
                         android:text="Phone Number"
                         android:textSize="15sp"
@@ -97,7 +98,7 @@
 
                     <EditText
                         android:id="@+id/et_phone"
-                        android:layout_width="wrap_content"
+                        android:layout_width="314dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="50dp"
                         android:layout_marginTop="6dp"
@@ -115,7 +116,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="50dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="24dp"
                         android:fontFamily="@font/poppins_bold"
                         android:text="Password"
                         android:textSize="15sp"
@@ -125,7 +126,7 @@
 
                     <EditText
                         android:id="@+id/et_password"
-                        android:layout_width="wrap_content"
+                        android:layout_width="314dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="50dp"
                         android:layout_marginTop="7dp"
@@ -164,7 +165,7 @@
 
                 <EditText
                     android:id="@+id/et_confirm_password"
-                    android:layout_width="wrap_content"
+                    android:layout_width="314dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
                     android:layout_marginTop="16dp"
@@ -185,7 +186,7 @@
                     android:backgroundTint="@color/blue_new"
                     android:fontFamily="@font/poppins_bold"
                     android:layout_gravity="center"
-                    android:text="Login"
+                    android:text="Create Account"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="17sp"
