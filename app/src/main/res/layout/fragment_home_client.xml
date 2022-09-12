@@ -56,51 +56,18 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/client_home_card_view"
-        android:layout_width="330dp"
-        android:layout_height="82dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="1dp"
-        android:background="@color/white"
-        android:foregroundGravity="center"
-        app:cardCornerRadius="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:gravity="center"
-                android:text="@string/client_home_text_subscribe"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
         android:id="@+id/client_home_item1"
         android:layout_width="344dp"
         android:layout_height="95dp"
-        android:foregroundGravity="center"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
         android:layout_marginEnd="1dp"
+        android:layout_marginTop="40dp"
+        android:foregroundGravity="center"
         app:cardCornerRadius="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/client_home_card_view">
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        tools:layout_editor_absoluteY="337dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -153,16 +120,16 @@
 
 
             <com.google.android.material.button.MaterialButton
-                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:id="@+id/button_minus"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="30dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="74dp"
-                android:text="-"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                app:cornerRadius="100dp"
                 android:backgroundTint="@color/light_grey_200"
+                android:text="-"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:cornerRadius="100dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView4"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -182,16 +149,16 @@
                 app:layout_constraintTop_toTopOf="@+id/button_minus" />
 
             <com.google.android.material.button.MaterialButton
-                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:id="@+id/button_plus"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="30dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="10dp"
-                android:text="+"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                app:cornerRadius="100dp"
                 android:backgroundTint="@color/light_grey_200"
+                android:text="+"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:cornerRadius="100dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView12"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -426,10 +393,10 @@
         android:id="@+id/login_button"
         android:layout_width="320dp"
         android:layout_height="70dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="90dp"
         android:backgroundTint="@color/blue_new"
         android:fontFamily="@font/poppins_bold"
-        android:text="Login"
+        android:text="Continue"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="17sp"
