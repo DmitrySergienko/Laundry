@@ -16,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
-class LoginFragment: Fragment(){
+class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding: FragmentLoginBinding
         get() = _binding!!
@@ -32,35 +32,43 @@ class LoginFragment: Fragment(){
         return binding.root
 
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+//        binding.loginButton.setOnClickListener {
+//            val email = binding.editTextTextEmailAddress.text.toString()
+//            val password = binding.editTextTextPassword.text.toString()
+//
+//            val myPost = LoginRequest(email, password)
+//            viewModel.pushLogin(myPost)
+//
+//            lifecycleScope.launchWhenStarted {
+//                viewModel.login.collectLatest {
+//                    if (it.pLOGIN_FLAG == "Y") {
+//
+//                        view.let { it1 ->
+//                            Navigation.findNavController(it1).navigate(R.id.action_mainFragment_to_homeClientFragment)
+//                        }
+//                    } else {
+//                        Toast.makeText(
+//                            requireContext(),
+//                            "INCORRECT EMAIL OR PASSWORD",
+//                            Toast.LENGTH_SHORT
+//                        ).show()
+//                    }
+//                }
+//            }
+//        }
+
         binding.loginButton.setOnClickListener {
-            val email = binding.editTextTextEmailAddress.text.toString()
-            val password = binding.editTextTextPassword.text.toString()
-
-            val myPost = LoginRequest(email, password)
-            viewModel.pushLogin(myPost)
-
-            lifecycleScope.launchWhenStarted {
-                viewModel.login.collectLatest {
-                    if (it.pLOGIN_FLAG == "Y") {
-
-                        view.let { it1 ->
-                            Navigation.findNavController(it1).navigate(R.id.action_mainFragment_to_homeClientFragment)
-                        }
-                    } else {
-                        Toast.makeText(
-                            requireContext(),
-                            "INCORRECT EMAIL OR PASSWORD",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
+            view.let { it1 ->
+                Navigation.findNavController(it1)
+                    .navigate(R.id.action_mainFragment_to_homeClientFragment)
             }
         }
 
-        }
+    }
 
 
     companion object {
