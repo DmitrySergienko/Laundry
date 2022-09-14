@@ -1,8 +1,9 @@
-package com.laundry
+package com.laundry.presentation.delivery
 
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.Navigation
+import com.laundry.R
 import com.laundry.databinding.FragmentDeliveryBinding
 import com.laundry.presentation.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint

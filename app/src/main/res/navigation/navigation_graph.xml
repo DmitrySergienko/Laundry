@@ -65,7 +65,7 @@
     </fragment>
     <fragment
         android:id="@+id/deliveryFragment"
-        android:name="com.laundry.DeliveryFragment"
+        android:name="com.laundry.presentation.delivery.DeliveryFragment"
         android:label="fragment_delivery"
         tools:layout="@layout/fragment_delivery" >
         <action
