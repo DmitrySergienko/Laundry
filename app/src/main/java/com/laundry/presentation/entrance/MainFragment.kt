@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.google.android.material.tabs.TabLayoutMediator
-import com.laundry.R
 import com.laundry.databinding.FragmentMainBinding
 import com.laundry.presentation.entrance.viewpager.VpAdapter
 import dagger.hilt.android.AndroidEntryPoint

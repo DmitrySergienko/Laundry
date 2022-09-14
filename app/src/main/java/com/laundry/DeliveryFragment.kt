@@ -1,12 +1,9 @@
 package com.laundry
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.laundry.databinding.FragmentDeliveryBinding
-import com.laundry.databinding.FragmentLoginBinding
 import com.laundry.presentation.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 

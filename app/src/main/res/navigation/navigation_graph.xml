@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/homeClientFragment">
+    app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_homeClientFragment_to_deliveryFragment"
             app:destination="@id/deliveryFragment" />
+        <action
+            android:id="@+id/action_homeClientFragment_to_checkboxOrderFragment"
+            app:destination="@id/checkboxOrderFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeServiceProviderFragment"
@@ -67,6 +70,15 @@
         tools:layout="@layout/fragment_delivery" >
         <action
             android:id="@+id/action_deliveryFragment_to_homeClientFragment"
+            app:destination="@id/homeClientFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkboxOrderFragment"
+        android:name="com.laundry.CheckboxOrderFragment"
+        android:label="fragment_checkbox_order"
+        tools:layout="@layout/fragment_checkbox_order" >
+        <action
+            android:id="@+id/action_checkboxOrderFragment_to_homeClientFragment"
             app:destination="@id/homeClientFragment" />
     </fragment>
 </navigation>

@@ -26,9 +26,9 @@
 
     <!-- View pager names of fragments -->
     <string-array name="drop_down_home_item">
-        <item>T-shirt</item>
-        <item>Jacket</item>
-        <item>Skirt</item>
+        <item>T-shirt for man T-shirt for man</item>
+        <item>Jacket for woman</item>
+        <item>Skirt for kinder</item>
     </string-array>
 
 </resources>
