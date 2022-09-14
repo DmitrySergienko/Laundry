@@ -2,6 +2,7 @@ package com.laundry
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.laundry.databinding.FragmentCategoryBinding
 import com.laundry.domain.Category
@@ -15,10 +16,13 @@ class CategoryFragment :
         Category(R.drawable.ic_checkbox_image_one,"Shorts",3),
         Category(R.drawable.ic_checkbox_image_two,"Cardigan",2),
         Category(R.drawable.ic_checkbox_image_three,"Skirt",3),
+        Category(R.drawable.ic_checkbox_t_shirt,"T-Shirt",3),
+        Category(R.drawable.ic_checkbox_other,"Other",3),
+        Category(R.drawable.ic_checkbox_image_one,"Shorts",3),
+        Category(R.drawable.ic_checkbox_image_two,"Cardigan",2),
         Category(R.drawable.ic_checkbox_image_three,"Skirt",3),
-        Category(R.drawable.ic_checkbox_image_three,"Skirt",3),
-        Category(R.drawable.ic_checkbox_image_three,"Skirt",3),
-        Category(R.drawable.ic_checkbox_image_three,"Skirt",3),
+        Category(R.drawable.ic_checkbox_t_shirt,"T-Shirt",3),
+        Category(R.drawable.ic_checkbox_other,"Other",3),
     )
 
 
@@ -27,9 +31,11 @@ class CategoryFragment :
 
         initRecyclerView()
 
+        navigateToHome() // navigate to home
+
     }
 
-    fun initRecyclerView(){
+    private fun initRecyclerView(){
         var todoList = fakeItemList
         val adapter = CategoryAdapter(todoList,requireContext())
         binding.apply {
@@ -38,4 +44,16 @@ class CategoryFragment :
 
         }
     }
+
+    private fun navigateToHome(){
+        binding.backButton.setOnClickListener {
+            view?.let { it1 ->
+                Navigation.findNavController(it1)
+                    .navigate(R.id.action_categoryFragment_to_homeClientFragment)
+            }
+        }
+    }
+
+
+
 }

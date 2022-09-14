@@ -39,12 +39,12 @@ class HomeClientFragment
 //
 //        }
 
-        binding.homeButton.setOnClickListener {
-            view.let { it1 ->
-                Navigation.findNavController(it1)
-                    .navigate(R.id.action_homeClientFragment_to_mainFragment)
-            }
-        }
+
+        navigateToLogin() // navigate to Login fragment
+        navigateToCategory() // navigate to Category fragment
+        navigateToDelivery() // navigate to Delivery fragment
+
+
 //        binding.homeContinueButton.setOnClickListener {
 //            if (increment > 0) {
 //                view.let { it1 ->
@@ -71,6 +71,14 @@ class HomeClientFragment
 //        }
 
     }
+    private fun navigateToCategory(){
+        binding.homeButton.setOnClickListener {
+            view?.let { it1 ->
+                Navigation.findNavController(it1)
+                    .navigate(R.id.action_homeClientFragment_to_mainFragment)
+            }
+        }
+    }
 
     private fun itemCount(button_plus: View, button_minus: View, text: TextView) {
 
@@ -81,6 +89,24 @@ class HomeClientFragment
         button_minus.setOnClickListener {
             if (increment <= 0) increment else increment--
             text.text = increment.toString()
+        }
+    }
+
+    private fun navigateToLogin(){
+        binding.forwardButton.setOnClickListener {
+            view?.let { it1 ->
+                Navigation.findNavController(it1).navigate(R.id.action_homeClientFragment_to_categoryFragment)
+
+            }
+        }
+    }
+
+    private fun navigateToDelivery(){
+        binding.categoryButton.setOnClickListener {
+            view?.let { it1 ->
+                Navigation.findNavController(it1).navigate(R.id.action_homeClientFragment_to_deliveryFragment)
+
+            }
         }
     }
 }

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/categoryFragment">
+    app:startDestination="@id/homeClientFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -42,7 +42,8 @@
             app:destination="@id/deliveryFragment" />
         <action
             android:id="@+id/action_homeClientFragment_to_categoryFragment"
-            app:destination="@id/categoryFragment" />
+            app:destination="@id/categoryFragment"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/homeServiceProviderFragment"
