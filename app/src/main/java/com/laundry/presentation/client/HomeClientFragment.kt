@@ -71,7 +71,9 @@ class HomeClientFragment
 //        }
 
     }
-    private fun navigateToCategory(){
+
+
+    private fun navigateToLogin(){
         binding.homeButton.setOnClickListener {
             view?.let { it1 ->
                 Navigation.findNavController(it1)
@@ -92,8 +94,8 @@ class HomeClientFragment
         }
     }
 
-    private fun navigateToLogin(){
-        binding.forwardButton.setOnClickListener {
+    private fun navigateToCategory(){
+        binding.clientHomeCv1.setOnClickListener {
             view?.let { it1 ->
                 Navigation.findNavController(it1).navigate(R.id.action_homeClientFragment_to_categoryFragment)
 

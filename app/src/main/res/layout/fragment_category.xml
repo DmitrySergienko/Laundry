@@ -73,7 +73,7 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="35dp"
                 android:backgroundTint="@color/blue_new"
-                android:fontFamily="@font/poppins_bold"
+                android:fontFamily="@font/poppins_black"
                 android:text="Submit category"
                 android:textAllCaps="false"
                 android:textColor="@color/white"

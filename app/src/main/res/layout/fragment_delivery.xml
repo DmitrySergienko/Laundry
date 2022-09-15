@@ -48,7 +48,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="50dp"
-                        android:fontFamily="@font/poppins_bold"
+                        android:fontFamily="@font/poppins"
                         android:text="Checkout"
                         android:textColor="@color/black"
                         android:textSize="20sp"
@@ -78,6 +78,7 @@
                     android:text="Pick Up"
                     android:textColor="@color/black"
                     android:textSize="32sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -86,7 +87,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:fontFamily="@font/poppins_bold"
+                    android:fontFamily="@font/poppins"
                     android:text="Address details"
                     android:textColor="@color/black"
                     android:textSize="15sp"
@@ -165,22 +166,12 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <View
-                    android:id="@+id/delivery_line_one"
-                    android:layout_width="320dp"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@android:color/darker_gray"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView" />
-
                 <TextView
                     android:id="@+id/textView15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="39dp"
-                    android:fontFamily="@font/poppins_bold"
+                    android:fontFamily="@font/poppins"
                     android:text="Delivery method"
                     android:textColor="@color/black"
                     android:textSize="17sp"
@@ -225,7 +216,7 @@
                     android:id="@+id/textView16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
+                    android:fontFamily="More Fonts..."
                     android:text="Normal"
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="@+id/imageView6"
@@ -341,7 +332,7 @@
                     android:layout_marginTop="40dp"
                     android:layout_marginBottom="40dp"
                     android:backgroundTint="@color/blue_new"
-                    android:fontFamily="@font/poppins_bold"
+                    android:fontFamily="@font/poppins_black"
                     android:text="Proceed to payment"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
