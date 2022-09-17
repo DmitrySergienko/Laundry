@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/categoryFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -70,12 +70,12 @@
     </fragment>
     <fragment
         android:id="@+id/checkboxOrderFragment"
-        android:name="com.laundry.CheckboxOrderFragment"
+        android:name="com.laundry.presentation.notimplemented.CheckboxOrderFragment"
         android:label="fragment_checkbox_order"
         tools:layout="@layout/fragment_checkbox_order" />
     <fragment
         android:id="@+id/categoryFragment"
-        android:name="com.laundry.CategoryFragment"
+        android:name="com.laundry.presentation.category.CategoryFragment"
         android:label="fragment_category"
         tools:layout="@layout/fragment_category" >
         <action

@@ -1,29 +1,18 @@
-package com.laundry
+package com.laundry.presentation.category
 
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.laundry.R
+import com.laundry.data.CategoryList
 import com.laundry.databinding.FragmentCategoryBinding
-import com.laundry.domain.Category
 import com.laundry.presentation.BaseFragment
-import com.laundry.presentation.category.CategoryAdapter
 
 class CategoryFragment :
      BaseFragment<FragmentCategoryBinding>(FragmentCategoryBinding::inflate){
 
-    private val fakeItemList = listOf<Category>(
-        Category(R.drawable.ic_checkbox_image_one,"Shorts",3),
-        Category(R.drawable.ic_checkbox_image_two,"Cardigan",2),
-        Category(R.drawable.ic_checkbox_image_three,"Skirt",3),
-        Category(R.drawable.ic_checkbox_t_shirt,"T-Shirt",3),
-        Category(R.drawable.ic_checkbox_other,"Other",3),
-        Category(R.drawable.ic_checkbox_image_one,"Shorts",3),
-        Category(R.drawable.ic_checkbox_image_two,"Cardigan",2),
-        Category(R.drawable.ic_checkbox_image_three,"Skirt",3),
-        Category(R.drawable.ic_checkbox_t_shirt,"T-Shirt",3),
-        Category(R.drawable.ic_checkbox_other,"Other",3),
-    )
+    private val fakeItemList = CategoryList()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -36,7 +25,7 @@ class CategoryFragment :
     }
 
     private fun initRecyclerView(){
-        var todoList = fakeItemList
+        var todoList = fakeItemList.fakeItemList
         val adapter = CategoryAdapter(todoList,requireContext())
         binding.apply {
             recyclerCategory.adapter = adapter

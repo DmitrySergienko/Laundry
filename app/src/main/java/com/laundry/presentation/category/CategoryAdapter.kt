@@ -12,23 +12,13 @@ import com.laundry.domain.Category
 class CategoryAdapter(
     todo: List<Category>,
     context: Context
-): RecyclerView.Adapter<CategoryAdapter.CategoryListHolder>() {
+): RecyclerView.Adapter<CategoryListHolder>() {
 
     private val workoutItemList = todo
     private val contextAdapter = context
 
 
-    class CategoryListHolder(item: View) : RecyclerView.ViewHolder(item) {
-        val binding = ClientHomeItemBinding.bind(item)
 
-        fun bind(item: Category) = with(binding) {
-            apply {
-                imageViewPic.setImageResource(item.image)
-                textViewName.text = item.name
-                textViewCount.text = item.count.toString()
-            }
-        }
-    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryListHolder {
         val view =
             LayoutInflater.from(contextAdapter).inflate(R.layout.client_home_item, parent, false)
