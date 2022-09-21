@@ -10,20 +10,14 @@ import com.laundry.data.database.entities.CategoryEntity
 import com.laundry.databinding.ClientHomeItemBinding
 import com.laundry.domain.Category
 
-class CategoryAdapter(
-    todo: List<Category>,
-    context: Context
-): RecyclerView.Adapter<CategoryListHolder>() {
+class CategoryAdapter(): RecyclerView.Adapter<CategoryListHolder>() {
 
-    private val itemList = todo
-    private val contextAdapter = context
+    private var itemList = emptyList<CategoryEntity>()
 
     var onItemClick: ((Category) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryListHolder {
-        val view =
-            LayoutInflater.from(contextAdapter).inflate(R.layout.fragment_category_item, parent, false)
-        return CategoryListHolder(view)
+        return CategoryListHolder(LayoutInflater.from(parent.context).inflate(R.layout.client_home_item,parent,false ))
 
     }
 
@@ -33,12 +27,10 @@ class CategoryAdapter(
         holder.binding.textViewName.text = category.name
         holder.binding.textViewCount.text = category.count.toString()
 
-        holder.bind(itemList[position])
-
-        //set call back for item click
-        holder.binding.buttonPlus.setOnClickListener {
-            onItemClick?.invoke(category)
-        }
+    }
+    fun setData(category: List<CategoryEntity>){
+        this.itemList = category
+        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {

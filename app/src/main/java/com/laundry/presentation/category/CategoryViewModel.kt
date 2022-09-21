@@ -18,7 +18,7 @@ import javax.inject.Inject
 
 class CategoryViewModel(application: Application):AndroidViewModel(application) {
 
-    private val readAllData: LiveData<List<CategoryEntity>>
+    val readAllData: LiveData<List<CategoryEntity>>
     private val repository: CategoryRep
 
 

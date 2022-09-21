@@ -19,7 +19,7 @@ class CategoryItemFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.buttonMinus.setOnClickListener {
+        binding.submitButton.setOnClickListener {
 
             viewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)
 
@@ -29,12 +29,9 @@ class CategoryItemFragment :
         }
 
 
-
     }
 
     private fun insertDataToDatabase(){
-        val cont = binding.textViewCount.text.toString()
-
         val category = CategoryEntity(0,false,R.drawable.ic_checkbox_image_one,"Shorts",0)
     //add Data to db
         viewModel.addCategory(category)
