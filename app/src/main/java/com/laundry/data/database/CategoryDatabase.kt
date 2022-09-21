@@ -14,12 +14,24 @@ abstract class CategoryDatabase: RoomDatabase() {
     abstract fun getCategoryDao(): CategoryDao
 
     companion object{
+
+        @Volatile
+        private var INSTANCE: CategoryDatabase? = null
+
         fun getDb(context: Context):CategoryDatabase{
-            return Room.databaseBuilder(
-                context.applicationContext,
-                CategoryDatabase::class.java,
-                "main_order"
-            ).build()
+            val tempInstance = INSTANCE
+            if(tempInstance !=null){
+                return tempInstance
+            }
+            synchronized(this){
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    CategoryDatabase::class.java,
+                    "main_order"
+                ).build()
+                INSTANCE = instance
+                return instance
+            }
         }
     }
 }

@@ -40,19 +40,19 @@ class CategoryFragment :
             dao.deleteAll()
             dao.insertCategory(fakeItemList.list)
 
-            val result = dao.getAll()
+            //val result = dao.getAll()
             val list = mutableListOf<Category>()
 
             // add to list from db
-            for (i in result) list.add(
-                Category(
-                    i.id,
-                    checkbox = i.checkbox,
-                    image = i.image,
-                    name = i.name,
-                    i.count
-                )
-            )
+//            for (i in result) list.add(
+//                Category(
+//                    i.id,
+//                    checkbox = i.checkbox,
+//                    image = i.image,
+//                    name = i.name,
+//                    i.count
+//                )
+//            )
 
             val recyclerList = list
             val adapter = CategoryAdapter(recyclerList, requireContext())

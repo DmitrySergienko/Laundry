@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/categoryFragment">
+    app:startDestination="@id/categoryItemFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -81,5 +81,16 @@
         <action
             android:id="@+id/action_categoryFragment_to_homeClientFragment"
             app:destination="@id/homeClientFragment" />
+        <action
+            android:id="@+id/action_categoryFragment_to_categoryItemFragment"
+            app:destination="@id/categoryItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryItemFragment"
+        android:name="com.laundry.CategoryItemFragment"
+        android:label="CategoryItemFragment" >
+        <action
+            android:id="@+id/action_categoryItemFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
     </fragment>
 </navigation>
