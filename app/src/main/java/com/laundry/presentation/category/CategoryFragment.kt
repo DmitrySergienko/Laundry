@@ -37,9 +37,8 @@ class CategoryFragment :
         val dao = db.getCategoryDao()
 
         Executors.newSingleThreadExecutor().execute {
-
-//            dao.deleteAll()
-       //   dao.insertCategory(fakeItemList.list)
+            dao.deleteAll()
+            dao.insertCategory(fakeItemList.list)
 
             val result = dao.getAll()
             val list = mutableListOf<Category>()
