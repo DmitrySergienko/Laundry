@@ -19,7 +19,7 @@ class CategoryItemFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.submitButton.setOnClickListener {
+        binding.buttonMinus.setOnClickListener {
 
             viewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)
 

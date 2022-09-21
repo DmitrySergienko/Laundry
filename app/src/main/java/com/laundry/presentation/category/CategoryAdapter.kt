@@ -17,7 +17,7 @@ class CategoryAdapter(): RecyclerView.Adapter<CategoryListHolder>() {
     var onItemClick: ((Category) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryListHolder {
-        return CategoryListHolder(LayoutInflater.from(parent.context).inflate(R.layout.client_home_item,parent,false ))
+        return CategoryListHolder(LayoutInflater.from(parent.context).inflate(R.layout.fragment_category_item,parent,false ))
 
     }
 
