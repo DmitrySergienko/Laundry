@@ -1,4 +1,4 @@
-package com.laundry
+package com.laundry.presentation.notimplemented
 
 import android.os.Bundle
 import android.view.View
