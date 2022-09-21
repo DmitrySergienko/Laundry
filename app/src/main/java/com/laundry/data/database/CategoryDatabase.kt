@@ -1,12 +1,25 @@
 package com.laundry.data.database
 
+import android.content.Context
 import androidx.room.Database
+import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.laundry.data.database.dao.CategoryDao
 import com.laundry.data.database.entities.CategoryEntity
+import com.laundry.presentation.category.CategoryFragment
 
 @Database(entities = [CategoryEntity::class], version = 1, exportSchema = true)
 abstract class CategoryDatabase: RoomDatabase() {
 
     abstract fun getCategoryDao(): CategoryDao
+
+    companion object{
+        fun getDb(context: Context):CategoryDatabase{
+            return Room.databaseBuilder(
+                context.applicationContext,
+                CategoryDatabase::class.java,
+                "main_order"
+            ).build()
+        }
+    }
 }

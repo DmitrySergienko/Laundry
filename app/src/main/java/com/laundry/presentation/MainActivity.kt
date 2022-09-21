@@ -34,29 +34,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //database room
-        val db = Room.databaseBuilder(
-            applicationContext,
-            CategoryDatabase::class.java,"main_order"
-        ).build()
 
-        val dao = db.getCategoryDao()
-
-
-        var  list = listOf<CategoryEntity>(
-            CategoryEntity(0,false,R.drawable.ic_checkbox_image_one,"Shorts",3),
-            CategoryEntity(1,false,R.drawable.ic_checkbox_image_two,"Cardigan",2),
-            CategoryEntity(2,false,R.drawable.ic_checkbox_image_three,"Skirt",3),
-            CategoryEntity(3,false,R.drawable.ic_checkbox_t_shirt,"T-Shirt",3),
-            CategoryEntity(4,false,R.drawable.ic_checkbox_other,"Other",3),
-            CategoryEntity(5,false,R.drawable.ic_checkbox_image_one,"Shorts",3),
-
-        )
-
-        Executors.newSingleThreadExecutor().execute{
-            dao.insertCategory(list) //вносим в бд данные
-            println("VVV ${dao.getAll()}") // читаем из бд
-        }
     }
 
     private fun statusbarhide(){

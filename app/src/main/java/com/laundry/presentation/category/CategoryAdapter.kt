@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.laundry.R
+import com.laundry.data.database.entities.CategoryEntity
 import com.laundry.databinding.ClientHomeItemBinding
 import com.laundry.domain.Category
 
@@ -14,10 +15,10 @@ class CategoryAdapter(
     context: Context
 ): RecyclerView.Adapter<CategoryListHolder>() {
 
-    private val workoutItemList = todo
+    private val itemList = todo
     private val contextAdapter = context
 
-
+    var onItemClick: ((Category) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryListHolder {
         val view =
@@ -27,11 +28,21 @@ class CategoryAdapter(
     }
 
     override fun onBindViewHolder(holder: CategoryListHolder, position: Int) {
-        holder.bind(workoutItemList[position])
+        val category = itemList[position]
+        holder.binding.imageViewPic.setImageResource(category.image)
+        holder.binding.textViewName.text = category.name
+        holder.binding.textViewCount.text = category.count.toString()
+
+        holder.bind(itemList[position])
+
+        //set call back for item click
+        holder.binding.buttonPlus.setOnClickListener {
+            onItemClick?.invoke(category)
+        }
     }
 
     override fun getItemCount(): Int {
-        return workoutItemList.size
+        return itemList.size
     }
 
 
