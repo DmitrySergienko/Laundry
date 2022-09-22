@@ -43,10 +43,19 @@ class HomeClientFragment
         navigateToCategory() // navigate to Category fragment
         navigateToDelivery() // navigate to Delivery fragment
 
+        //get count of click from share view model
+        sharedViewModel.amount.observe(viewLifecycleOwner) { amount ->
+            if (amount == "0") {
+                binding.cardViewPrice.visibility = View.INVISIBLE
+                binding.textView9.visibility = View.VISIBLE
+            } else {
+                binding.textView23.setText(amount)
+                val price = amount.toInt()
+                val result = price * 100
+                binding.textView26.text = result.toString()
+            }
 
-        sharedViewModel.amount.observe(viewLifecycleOwner, {amount->
-            binding.textView23.setText(amount)
-        })
+        }
 
 
 //        binding.homeContinueButton.setOnClickListener {

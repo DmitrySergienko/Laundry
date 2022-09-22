@@ -36,11 +36,11 @@ class CategoryItemFragment :
     }
 
     private fun insertDataToDatabase(){
-        val category = CategoryEntity(0,false,R.drawable.ic_checkbox_image_two,"Shorts",0)
+        val category = CategoryEntity(0,false,R.drawable.ic_checkbox_other,"Shorts",0)
     //add Data to db
         viewModel.addCategory(category)
         Toast.makeText(requireContext(), "Successfully add category", Toast.LENGTH_SHORT).show()
-       // findNavController().navigate(R.id.action_categoryItemFragment_to_categoryFragment)
+       findNavController().navigate(R.id.action_categoryItemFragment_to_homeClientFragment)
     }
 
     private fun increment(){
