@@ -6,24 +6,37 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.LifecycleOwner
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.laundry.R
 import com.laundry.data.database.entities.CategoryEntity
 import com.laundry.domain.Category
 import kotlin.coroutines.coroutineContext
 
-class CategoryAdapter(): RecyclerView.Adapter<CategoryListHolder>() {
+class CategoryAdapter(
+    private val sharedViewModel: SharedViewModel,
+    private val viewLifecycleOwner: LifecycleOwner,
+    //private val navController: NavController
+): RecyclerView.Adapter<CategoryListHolder>() {
 
     private var itemList = emptyList<CategoryEntity>()
+
+
 
 //    var onItemClick: ((Category) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryListHolder {
-        return CategoryListHolder(LayoutInflater.from(parent.context).inflate(R.layout.fragment_category_item,parent,false ))
+        return CategoryListHolder(LayoutInflater.from(parent.context).inflate(R.layout.client_home_item,parent,false ))
 
     }
 
     override fun onBindViewHolder(holder: CategoryListHolder, position: Int) {
+
+
 
         val categoryItem = itemList[position]
 
@@ -36,6 +49,17 @@ class CategoryAdapter(): RecyclerView.Adapter<CategoryListHolder>() {
 //
 //        }
         countValue(holder,holder.binding.buttonPlus,holder.binding.buttonMinus,holder.binding.textViewCount,holder.binding.checkBox)
+
+        sharedViewModel.amount.observe(viewLifecycleOwner, {
+            holder.binding.textViewCount.text.toString()
+        })
+
+        holder.binding.saveButton.setOnClickListener {view ->
+            view.findNavController().navigate(R.id.action_categoryFragment_to_homeClientFragment)
+            sharedViewModel.saveItemCount(holder.binding.textViewCount.text.toString())
+
+        }
+
 
     }
 

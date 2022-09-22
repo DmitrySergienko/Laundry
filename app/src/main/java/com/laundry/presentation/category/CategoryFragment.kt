@@ -2,8 +2,10 @@ package com.laundry.presentation.category
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.laundry.R
@@ -19,6 +21,8 @@ class CategoryFragment :
     private val fakeItemList = CategoryList()
     private lateinit var viewModel: CategoryViewModel
 
+    private val sharedViewModel: SharedViewModel by activityViewModels()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -26,12 +30,14 @@ class CategoryFragment :
         recyclerView()
         navigateToHome() // navigate to home
 
+
+
     }
 
     private fun recyclerView(){
 
         //recyclerView
-        val adapter = CategoryAdapter()
+        val adapter = CategoryAdapter(sharedViewModel, viewLifecycleOwner = viewLifecycleOwner)
         val recyclerView = binding.recyclerCategory
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())

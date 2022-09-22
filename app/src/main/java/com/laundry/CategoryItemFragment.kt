@@ -3,12 +3,14 @@ package com.laundry
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.laundry.data.database.entities.CategoryEntity
 import com.laundry.databinding.FragmentCategoryItemBinding
 import com.laundry.presentation.BaseFragment
 import com.laundry.presentation.category.CategoryViewModel
+import com.laundry.presentation.category.SharedViewModel
 
 
 class CategoryItemFragment :
@@ -16,6 +18,7 @@ class CategoryItemFragment :
 
     private lateinit var viewModel: CategoryViewModel
     private var count = 0
+
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -26,6 +29,8 @@ class CategoryItemFragment :
 
             insertDataToDatabase()
             increment()
+
+
 
         }
     }

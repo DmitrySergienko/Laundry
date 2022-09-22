@@ -3,12 +3,14 @@ package com.laundry.presentation.client
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 
 import com.laundry.R
 import com.laundry.databinding.FragmentCategoryItemBinding
 import com.laundry.databinding.FragmentHomeClientBinding
 import com.laundry.presentation.BaseFragment
+import com.laundry.presentation.category.SharedViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -18,6 +20,8 @@ class HomeClientFragment
 
     private var increment = 0
    // private val args by navArgs<CategoryItemFragmentArgs>()
+
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onResume() {
         super.onResume()
@@ -38,6 +42,11 @@ class HomeClientFragment
         navigateToLogin() // navigate to Login fragment
         navigateToCategory() // navigate to Category fragment
         navigateToDelivery() // navigate to Delivery fragment
+
+
+        sharedViewModel.amount.observe(viewLifecycleOwner, {amount->
+            binding.textView23.setText(amount)
+        })
 
 
 //        binding.homeContinueButton.setOnClickListener {
