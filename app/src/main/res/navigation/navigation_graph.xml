@@ -44,6 +44,9 @@
             android:id="@+id/action_homeClientFragment_to_categoryFragment"
             app:destination="@id/categoryFragment"
             app:exitAnim="@android:anim/fade_out" />
+        <argument
+            android:name="currentCount"
+            app:argType="com.laundry.data.database.entities.CategoryEntity" />
     </fragment>
     <fragment
         android:id="@+id/homeServiceProviderFragment"
@@ -80,6 +83,23 @@
         tools:layout="@layout/fragment_category" >
         <action
             android:id="@+id/action_categoryFragment_to_homeClientFragment"
+            app:destination="@id/homeClientFragment" />
+        <action
+            android:id="@+id/action_categoryFragment_to_categoryItemFragment"
+            app:destination="@id/categoryItemFragment" />
+        <action
+            android:id="@+id/action_categoryFragment_to_homeClientFragment2"
+            app:destination="@id/homeClientFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryItemFragment"
+        android:name="com.laundry.CategoryItemFragment"
+        android:label="CategoryItemFragment" >
+        <argument
+            android:name="currentCategory"
+            app:argType="com.laundry.data.database.entities.CategoryEntity" />
+        <action
+            android:id="@+id/action_categoryItemFragment_to_homeClientFragment"
             app:destination="@id/homeClientFragment" />
     </fragment>
 </navigation>
