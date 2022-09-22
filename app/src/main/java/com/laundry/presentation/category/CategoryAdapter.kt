@@ -1,20 +1,17 @@
 package com.laundry.presentation.category
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.laundry.R
 import com.laundry.data.database.entities.CategoryEntity
-import com.laundry.databinding.ClientHomeItemBinding
 import com.laundry.domain.Category
 
 class CategoryAdapter(): RecyclerView.Adapter<CategoryListHolder>() {
 
     private var itemList = emptyList<CategoryEntity>()
 
-    var onItemClick: ((Category) -> Unit)? = null
+//    var onItemClick: ((Category) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryListHolder {
         return CategoryListHolder(LayoutInflater.from(parent.context).inflate(R.layout.fragment_category_item,parent,false ))
@@ -22,12 +19,19 @@ class CategoryAdapter(): RecyclerView.Adapter<CategoryListHolder>() {
     }
 
     override fun onBindViewHolder(holder: CategoryListHolder, position: Int) {
-        val category = itemList[position]
-        holder.binding.imageViewPic.setImageResource(category.image)
-        holder.binding.textViewName.text = category.name
-        holder.binding.textViewCount.text = category.count.toString()
 
+        val categoryItem = itemList[position]
+
+        holder.binding.imageViewPic.setImageResource(categoryItem.image)
+        holder.binding.textViewName.text = categoryItem.name
+        holder.binding.textViewCount.text = categoryItem.count.toString()
+
+        holder.binding.rowLayout.setOnClickListener {
+            val action = CategoryFragmentDirections.actionCategoryFragmentToHomeClientFragment(categoryItem)
+
+        }
     }
+
     fun setData(category: List<CategoryEntity>){
         this.itemList = category
         notifyDataSetChanged()

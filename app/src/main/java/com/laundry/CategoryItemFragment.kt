@@ -15,6 +15,7 @@ class CategoryItemFragment :
     BaseFragment<FragmentCategoryItemBinding>(FragmentCategoryItemBinding::inflate) {
 
     private lateinit var viewModel: CategoryViewModel
+    private var count = 0
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -24,18 +25,23 @@ class CategoryItemFragment :
             viewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)
 
             insertDataToDatabase()
-
+            increment()
 
         }
-
-
     }
 
     private fun insertDataToDatabase(){
-        val category = CategoryEntity(0,false,R.drawable.ic_checkbox_image_one,"Shorts",0)
+        val category = CategoryEntity(0,false,R.drawable.ic_checkbox_image_two,"Shorts",0)
     //add Data to db
         viewModel.addCategory(category)
         Toast.makeText(requireContext(), "Successfully add category", Toast.LENGTH_SHORT).show()
-        findNavController().navigate(R.id.action_categoryItemFragment_to_categoryFragment)
+       // findNavController().navigate(R.id.action_categoryItemFragment_to_categoryFragment)
+    }
+
+    private fun increment(){
+        binding.buttonPlus.setOnClickListener {
+            count++
+            binding.textViewCount.text = count.toString()
+        }
     }
 }

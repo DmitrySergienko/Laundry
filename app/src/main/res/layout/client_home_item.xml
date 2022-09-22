@@ -4,120 +4,121 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/light_grey_200">
+    android:background="@color/light_grey_200"
+    android:id="@+id/root_row_layout">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/client_home_cv1"
-        android:layout_width="344dp"
-        android:layout_height="95dp"
-        android:foregroundGravity="center"
-        android:layout_marginTop="16dp"
-        app:cardCornerRadius="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/client_home_cv1"-->
+<!--        android:layout_width="344dp"-->
+<!--        android:layout_height="95dp"-->
+<!--        android:foregroundGravity="center"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        app:cardCornerRadius="30dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.5"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
 
-            <CheckBox
-                android:id="@+id/checkBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+<!--            <CheckBox-->
+<!--                android:id="@+id/checkBox"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
 
-            <ImageView
-                android:id="@+id/image_view_pic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/checkBox"
-                app:layout_constraintTop_toTopOf="parent"/>
+<!--            <ImageView-->
+<!--                android:id="@+id/image_view_pic"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/checkBox"-->
+<!--                app:layout_constraintTop_toTopOf="parent"/>-->
 
-            <TextView
-                android:id="@+id/text_view_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:fontFamily="@font/poppins_bold"
-                android:hint="Shorts"
-                android:text="TextView"
-                android:textColorHint="@color/black"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/image_view_pic"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardElevation="0dp"
-                android:layout_marginEnd="14dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/button_minus"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="30dp"
-                        android:layout_height="40dp"
-                        android:layout_marginEnd="10dp"
-                        android:textAlignment="center"
-                        android:backgroundTint="@color/light_grey_200"
-                        android:text="-"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        app:cornerRadius="60dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/text_view_count"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/text_view_count"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginTop="1dp"
-                        android:fontFamily="@font/poppins_bold"
-                        android:hint="0"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/black"
-                        android:textSize="15sp"
-                        app:layout_constraintBottom_toBottomOf="@+id/button_minus"
-                        app:layout_constraintEnd_toStartOf="@+id/button_plus"
-                        app:layout_constraintTop_toTopOf="@+id/button_minus" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/button_plus"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="30dp"
-                        android:layout_height="40dp"
-                        android:backgroundTint="@color/light_grey_200"
-                        android:text="+"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        app:cornerRadius="60dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+<!--            <TextView-->
+<!--                android:id="@+id/text_view_name"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="15dp"-->
+<!--                android:fontFamily="@font/poppins_bold"-->
+<!--                android:hint="Shorts"-->
+<!--                android:text="TextView"-->
+<!--                android:textColorHint="@color/black"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/image_view_pic"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
 
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:cardElevation="0dp"-->
+<!--                android:layout_marginEnd="14dp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent">-->
+
+<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent">-->
+
+<!--                    <com.google.android.material.button.MaterialButton-->
+<!--                        android:id="@+id/button_minus"-->
+<!--                        style="@style/Widget.MaterialComponents.Button.TextButton"-->
+<!--                        android:layout_width="30dp"-->
+<!--                        android:layout_height="40dp"-->
+<!--                        android:layout_marginEnd="10dp"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:backgroundTint="@color/light_grey_200"-->
+<!--                        android:text="-"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="16sp"-->
+<!--                        app:cornerRadius="60dp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintEnd_toStartOf="@+id/text_view_count"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/text_view_count"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginEnd="10dp"-->
+<!--                        android:layout_marginTop="1dp"-->
+<!--                        android:fontFamily="@font/poppins_bold"-->
+<!--                        android:hint="0"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textColorHint="@color/black"-->
+<!--                        android:textSize="15sp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="@+id/button_minus"-->
+<!--                        app:layout_constraintEnd_toStartOf="@+id/button_plus"-->
+<!--                        app:layout_constraintTop_toTopOf="@+id/button_minus" />-->
+
+<!--                    <com.google.android.material.button.MaterialButton-->
+<!--                        android:id="@+id/button_plus"-->
+<!--                        style="@style/Widget.MaterialComponents.Button.TextButton"-->
+<!--                        android:layout_width="30dp"-->
+<!--                        android:layout_height="40dp"-->
+<!--                        android:backgroundTint="@color/light_grey_200"-->
+<!--                        android:text="+"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="16sp"-->
+<!--                        app:cornerRadius="60dp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--            </androidx.cardview.widget.CardView>-->
+
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--    </androidx.cardview.widget.CardView>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

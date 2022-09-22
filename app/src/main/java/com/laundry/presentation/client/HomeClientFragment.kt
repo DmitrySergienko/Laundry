@@ -1,12 +1,13 @@
 package com.laundry.presentation.client
 
 import android.os.Bundle
-import android.view.Gravity
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.navArgs
+import com.laundry.CategoryItemFragmentArgs
 import com.laundry.R
+import com.laundry.databinding.FragmentCategoryItemBinding
 import com.laundry.databinding.FragmentHomeClientBinding
 import com.laundry.presentation.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,6 +18,7 @@ class HomeClientFragment
     : BaseFragment<FragmentHomeClientBinding>(FragmentHomeClientBinding::inflate) {
 
     private var increment = 0
+    private val args by navArgs<CategoryItemFragmentArgs>()
 
     override fun onResume() {
         super.onResume()
@@ -29,6 +31,8 @@ class HomeClientFragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.textView23.setText(args.currentCategory.count.toString())
 
         //fake item calculation
 //        with(binding) {
