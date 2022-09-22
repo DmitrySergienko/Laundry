@@ -4,8 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.navArgs
-import com.laundry.CategoryItemFragmentArgs
+
 import com.laundry.R
 import com.laundry.databinding.FragmentCategoryItemBinding
 import com.laundry.databinding.FragmentHomeClientBinding
@@ -18,7 +17,7 @@ class HomeClientFragment
     : BaseFragment<FragmentHomeClientBinding>(FragmentHomeClientBinding::inflate) {
 
     private var increment = 0
-    private val args by navArgs<CategoryItemFragmentArgs>()
+   // private val args by navArgs<CategoryItemFragmentArgs>()
 
     override fun onResume() {
         super.onResume()
@@ -32,16 +31,8 @@ class HomeClientFragment
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.textView23.setText(args.currentCategory.count.toString())
+      //  binding.textView23.setText(args.currentCategory.count.toString())
 
-        //fake item calculation
-//        with(binding) {
-//            itemCount(buttonPlus, buttonMinus, textView12)
-//            itemCount(buttonPlus2, buttonMinus2, textView122)
-//            itemCount(buttonPlus3, buttonMinus3, textView123)
-//
-//
-//        }
 
 
         navigateToLogin() // navigate to Login fragment
@@ -86,17 +77,7 @@ class HomeClientFragment
         }
     }
 
-    private fun itemCount(button_plus: View, button_minus: View, text: TextView) {
 
-        button_plus.setOnClickListener {
-            increment++
-            text.text = increment.toString()
-        }
-        button_minus.setOnClickListener {
-            if (increment <= 0) increment else increment--
-            text.text = increment.toString()
-        }
-    }
 
     private fun navigateToCategory(){
         binding.clientHomeCv1.setOnClickListener {

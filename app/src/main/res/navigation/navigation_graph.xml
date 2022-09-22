@@ -95,9 +95,6 @@
         android:id="@+id/categoryItemFragment"
         android:name="com.laundry.CategoryItemFragment"
         android:label="CategoryItemFragment" >
-        <argument
-            android:name="currentCategory"
-            app:argType="com.laundry.data.database.entities.CategoryEntity" />
         <action
             android:id="@+id/action_categoryItemFragment_to_homeClientFragment"
             app:destination="@id/homeClientFragment" />
