@@ -34,6 +34,7 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryListHolder>() {
 
         //holder.binding.checkBox.setOnCheckedChangeListener(null)
 
+
         holder.binding.checkBox.isChecked = categoryItem.count > 0
 
         holder.binding.buttonPlus.setOnClickListener {
