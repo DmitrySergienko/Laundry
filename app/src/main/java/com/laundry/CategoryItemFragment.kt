@@ -17,7 +17,6 @@ class CategoryItemFragment :
     BaseFragment<FragmentCategoryItemBinding>(FragmentCategoryItemBinding::inflate) {
 
     private lateinit var viewModel: CategoryViewModel
-    private var count = 0
 
 
 
@@ -28,7 +27,7 @@ class CategoryItemFragment :
             viewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)
 
             insertDataToDatabase()
-            increment()
+
 
 
 
@@ -43,10 +42,5 @@ class CategoryItemFragment :
        findNavController().navigate(R.id.action_categoryItemFragment_to_homeClientFragment)
     }
 
-    private fun increment(){
-        binding.buttonPlus.setOnClickListener {
-            count++
-            binding.textViewCount.text = count.toString()
-        }
-    }
+
 }

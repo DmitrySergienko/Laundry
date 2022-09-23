@@ -10,17 +10,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.laundry.R
 import com.laundry.data.database.entities.CategoryEntity
 
-class CategoryAdapter(
-    private val sharedViewModel: SharedViewModel,
-    private val viewLifecycleOwner: LifecycleOwner,
+class CategoryAdapter : RecyclerView.Adapter<CategoryListHolder>() {
 
-): RecyclerView.Adapter<CategoryListHolder>() {
-
-    private var itemList = emptyList<CategoryEntity>()
-
+    private var itemList = mutableListOf<CategoryEntity>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryListHolder {
-        return CategoryListHolder(LayoutInflater.from(parent.context).inflate(R.layout.client_home_item,parent,false ))
+        return CategoryListHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.client_home_item, parent, false)
+        )
 
     }
 
@@ -31,24 +28,46 @@ class CategoryAdapter(
         holder.binding.textViewName.text = categoryItem.name
         holder.binding.textViewCount.text = categoryItem.count.toString()
 
-        //calculate how many items chosen and setText in TextView
-        countValue(holder,holder.binding.buttonPlus,holder.binding.buttonMinus,holder.binding.textViewCount,holder.binding.checkBox)
-
-        holder.binding.saveButton.setOnClickListener {view ->
-           //view.findNavController().navigate(R.id.action_categoryFragment_to_homeClientFragment)
-            val sum = holder.binding.textViewCount.text.toString()
-
-            Log.d("VVV","${sum}")
-
-            //save count in shared viewModel
-            sharedViewModel.saveItemCount(sum)
-
-
+        holder.binding.buttonPlus.setOnClickListener {
+            categoryItem.count += 1
+            notifyItemChanged(position)
         }
+
+        holder.binding.buttonMinus.setOnClickListener {
+            if (categoryItem.count > 0) {
+                categoryItem.count -= 1
+                notifyItemChanged(position)
+            }
+        }
+
+        //calculate how many items chosen and setText in TextView
+        //  countValue(holder,holder.binding.buttonPlus,holder.binding.buttonMinus,holder.binding.textViewCount,holder.binding.checkBox)
+
+//        holder.binding.saveButton.setOnClickListener {view ->
+//           //view.findNavController().navigate(R.id.action_categoryFragment_to_homeClientFragment)
+//            val sum = holder.binding.textViewCount.text.toString()
+//
+//            Log.d("VVV", sum)
+//
+//            //save count in shared viewModel
+//            sharedViewModel.saveItemCount(sum)
+//
+//
+//        }
 
     }
 
-    private fun countValue(holder: CategoryListHolder, button_plus: View, button_minus: View, countTextView: TextView, checkbox:View){
+    fun getTotalAmount(): Int {
+        return itemList.sumOf { it.count }
+    }
+
+    private fun countValue(
+        holder: CategoryListHolder,
+        button_plus: View,
+        button_minus: View,
+        countTextView: TextView,
+        checkbox: View
+    ) {
         var count = 0
         button_plus.setOnClickListener {
             count++
@@ -56,16 +75,16 @@ class CategoryAdapter(
             holder.binding.checkBox.isChecked = true
         }
         checkbox.setOnClickListener {
-            if(holder.binding.checkBox.isChecked){
+            if (holder.binding.checkBox.isChecked) {
                 count = 1
                 countTextView.text = count.toString()
-            }else{
+            } else {
                 count = 0
                 countTextView.text = count.toString()
             }
         }
         button_minus.setOnClickListener {
-            when(count) {
+            when (count) {
                 1 -> {
                     holder.binding.checkBox.isChecked = false
                     count = 0
@@ -81,15 +100,14 @@ class CategoryAdapter(
         }
     }
 
-    fun setData(category: List<CategoryEntity>){
-        this.itemList = category
+    fun setData(category: List<CategoryEntity>) {
+        this.itemList.addAll(category)
         notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {
         return itemList.size
     }
-
 
 
 }

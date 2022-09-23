@@ -1,6 +1,7 @@
 package com.laundry.presentation.client
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
@@ -18,24 +19,13 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeClientFragment
     : BaseFragment<FragmentHomeClientBinding>(FragmentHomeClientBinding::inflate) {
 
-    private var increment = 0
-   // private val args by navArgs<CategoryItemFragmentArgs>()
 
     private val sharedViewModel: SharedViewModel by activityViewModels()
 
-    override fun onResume() {
-        super.onResume()
-
-        //drop down item adapter
-//        val items = resources.getStringArray(R.array.drop_down_home_item)
-//        val arrayAdapter = ArrayAdapter(requireContext(),R.layout.drop_down_item_home,items)
-//        binding.autoCompleteHomeItem.setAdapter(arrayAdapter)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-      //  binding.textView23.setText(args.currentCategory.count.toString())
 
 
 
@@ -45,13 +35,14 @@ class HomeClientFragment
 
         //get count of click from share view model
         sharedViewModel.amount.observe(viewLifecycleOwner) { amount ->
-            if (amount == "0") {
+
+            if (amount == 0) {
                 binding.cardViewPrice.visibility = View.INVISIBLE
                 binding.textView9.visibility = View.VISIBLE
             } else {
-                binding.textView23.setText(amount)
-                val price = amount.toInt()
-                val result = price * 100
+                binding.textView23.setText(amount.toString())
+
+                val result = amount * 100
                 binding.textView26.text = result.toString()
             }
 

@@ -3,10 +3,12 @@ package com.laundry.presentation.category
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.laundry.R
 import com.laundry.data.CategoryList
@@ -18,6 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class CategoryFragment :
     BaseFragment<FragmentCategoryBinding>(FragmentCategoryBinding::inflate) {
 
+    private var adapter: CategoryAdapter? = null
     private val fakeItemList = CategoryList()
     private lateinit var viewModel: CategoryViewModel
 
@@ -26,30 +29,23 @@ class CategoryFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-       // initRecyclerView()
-        recyclerView()
+
+        recyclerView() // initRecyclerView()
         navigateToHome() // navigate to home
 
 
         binding.categoryButton.setOnClickListener {
-            view.let { it1 ->
+            val total = adapter?.getTotalAmount()
+            total?.let { t -> sharedViewModel.saveItemCount(t) }
 
-                sharedViewModel.amount.observe(viewLifecycleOwner,{amount ->
-
-                    Log.d("VVV"," From Fragment ${amount}")
-                })
-
-                Navigation.findNavController(it1)
-                    .navigate(R.id.action_categoryFragment_to_homeClientFragment)
-
-            }
+            findNavController().navigateUp()
         }
     }
 
     private fun recyclerView() {
 
         //recyclerView
-        val adapter = CategoryAdapter(sharedViewModel, viewLifecycleOwner = viewLifecycleOwner)
+        adapter = CategoryAdapter()
         val recyclerView = binding.recyclerCategory
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -57,7 +53,7 @@ class CategoryFragment :
         //viewModel
         viewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)
         viewModel.readAllData.observe(viewLifecycleOwner, Observer { category ->
-            adapter.setData(category)
+            adapter?.setData(category)
 
         })
     }
@@ -69,6 +65,15 @@ class CategoryFragment :
                     .navigate(R.id.action_categoryFragment_to_homeClientFragment)
             }
         }
+    }
+
+    private fun cleanDataFromDB() {
+        viewModel.cleanCategoryList()
+        Toast.makeText(
+            requireContext(),
+            "The Category List was cleanup successfully",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
 

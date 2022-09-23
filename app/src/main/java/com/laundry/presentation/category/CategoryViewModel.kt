@@ -29,5 +29,10 @@ class CategoryViewModel(application: Application):AndroidViewModel(application) 
         }
     }
 
+    fun cleanCategoryList(){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.cleanList()
+        }
+    }
 
 }

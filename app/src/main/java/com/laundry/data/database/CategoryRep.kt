@@ -13,4 +13,12 @@ class CategoryRep(
         categoryDao.addCategory(category)
     }
 
+    suspend fun cleanList(){
+        categoryDao.deleteAll()
+    }
+
+//    suspend fun readAll(){
+//        categoryDao.readAll()
+//    }
+
 }

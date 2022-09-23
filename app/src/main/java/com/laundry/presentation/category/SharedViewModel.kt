@@ -6,10 +6,10 @@ import androidx.lifecycle.ViewModel
 
 class SharedViewModel: ViewModel() {
 
-    private var _amount = MutableLiveData("0")
-    val amount: LiveData<String> = _amount
+    private var _amount = MutableLiveData(0)
+    val amount: LiveData<Int> = _amount
 
-    fun saveItemCount(newAmount: String){
+    fun saveItemCount(newAmount: Int){
         _amount.value = newAmount
     }
 

@@ -15,5 +15,5 @@ data class CategoryEntity(
     @ColumnInfo(name = "checkbox") val checkbox: Boolean,
     @ColumnInfo(name = "image") val image: Int,
     @ColumnInfo(name = "name") val name: String,
-    @ColumnInfo(name = "count") var count: Int,
+    @ColumnInfo(name = "count") var count: Int = 0,
 ):Parcelable
