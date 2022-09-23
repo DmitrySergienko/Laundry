@@ -1,6 +1,7 @@
 package com.laundry.presentation.category
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
@@ -33,7 +34,7 @@ class CategoryFragment :
         recyclerView() // initRecyclerView()
         navigateToHome() // navigate to home
 
-       //insertListToDB(fakeItemList.list)
+       insertListToDB(fakeItemList.list)
        // cleanDataFromDB()
 
 
