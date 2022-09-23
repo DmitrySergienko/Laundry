@@ -1,7 +1,6 @@
 package com.laundry.presentation.category
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
@@ -12,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.laundry.R
 import com.laundry.data.CategoryList
+import com.laundry.data.database.entities.CategoryEntity
 import com.laundry.databinding.FragmentCategoryBinding
 import com.laundry.presentation.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,12 +33,16 @@ class CategoryFragment :
         recyclerView() // initRecyclerView()
         navigateToHome() // navigate to home
 
+       //insertListToDB(fakeItemList.list)
+       // cleanDataFromDB()
 
-        binding.categoryButton.setOnClickListener {
+
+        binding.submitButton.setOnClickListener {
             val total = adapter?.getTotalAmount()
+            //save count in shared View Model
             total?.let { t -> sharedViewModel.saveItemCount(t) }
 
-            findNavController().navigateUp()
+            findNavController().navigateUp() // navigate to home page
         }
     }
 
@@ -53,7 +57,7 @@ class CategoryFragment :
         //viewModel
         viewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)
         viewModel.readAllData.observe(viewLifecycleOwner, Observer { category ->
-            adapter?.setData(category)
+            adapter?.setDiffUtilData(category as MutableList<CategoryEntity>)
 
         })
     }
@@ -76,5 +80,10 @@ class CategoryFragment :
         ).show()
     }
 
+    private fun insertListToDB(list: List<CategoryEntity>){
+        viewModel.insertCategoryList(list)
+
+
+    }
 
 }

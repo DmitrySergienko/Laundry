@@ -2,17 +2,17 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_row_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/light_grey_200"
-    android:id="@+id/root_row_layout">
+    android:background="@color/light_grey_200">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/client_home_cv1"
         android:layout_width="344dp"
         android:layout_height="95dp"
-        android:foregroundGravity="center"
         android:layout_marginTop="16dp"
+        android:foregroundGravity="center"
         app:cardCornerRadius="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/checkBox"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/text_view_name"
@@ -57,8 +57,8 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardElevation="0dp"
                 android:layout_marginEnd="14dp"
+                app:cardElevation="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -73,9 +73,9 @@
                         android:layout_width="30dp"
                         android:layout_height="40dp"
                         android:layout_marginEnd="10dp"
-                        android:textAlignment="center"
                         android:backgroundTint="@color/light_grey_200"
                         android:text="-"
+                        android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         app:cornerRadius="60dp"
@@ -87,8 +87,8 @@
                         android:id="@+id/text_view_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
                         android:layout_marginTop="1dp"
+                        android:layout_marginEnd="10dp"
                         android:fontFamily="@font/poppins_bold"
                         android:hint="0"
                         android:textColor="@color/black"
@@ -116,17 +116,6 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
-
-            <Button
-                android:id="@+id/save_button"
-                android:layout_width="61dp"
-                android:layout_height="23dp"
-                android:layout_marginEnd="20dp"
-                android:text="save"
-                android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

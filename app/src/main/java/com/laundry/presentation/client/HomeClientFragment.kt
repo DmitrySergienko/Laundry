@@ -1,14 +1,10 @@
 package com.laundry.presentation.client
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
-
 import com.laundry.R
-import com.laundry.databinding.FragmentCategoryItemBinding
 import com.laundry.databinding.FragmentHomeClientBinding
 import com.laundry.presentation.BaseFragment
 import com.laundry.presentation.category.SharedViewModel
@@ -85,8 +81,6 @@ class HomeClientFragment
             }
         }
     }
-
-
 
     private fun navigateToCategory(){
         binding.clientHomeCv1.setOnClickListener {
