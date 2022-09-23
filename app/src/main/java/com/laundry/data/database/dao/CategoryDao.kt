@@ -1,12 +1,11 @@
 package com.laundry.data.database.dao
 
-import android.content.Context
 import androidx.lifecycle.LiveData
-import androidx.room.*
-import com.laundry.data.database.CategoryDatabase
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import com.laundry.data.database.entities.CategoryEntity
-import com.laundry.domain.Category
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface CategoryDao {
@@ -18,7 +17,7 @@ interface CategoryDao {
     fun readAll(): LiveData<List<CategoryEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertCategory(category: List<CategoryEntity>)
+    fun insertCategoryList(category: List<CategoryEntity>)
 
     @Query("DELETE FROM category_database")
     suspend fun deleteAll()

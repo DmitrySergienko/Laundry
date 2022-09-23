@@ -17,8 +17,8 @@ class CategoryRep(
         categoryDao.deleteAll()
     }
 
-//    suspend fun readAll(){
-//        categoryDao.readAll()
-//    }
+    fun insertCategoryListToBD(list:List<CategoryEntity>){
+        categoryDao.insertCategoryList(list)
+    }
 
 }

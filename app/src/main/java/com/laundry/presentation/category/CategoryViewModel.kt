@@ -34,5 +34,10 @@ class CategoryViewModel(application: Application):AndroidViewModel(application) 
             repository.cleanList()
         }
     }
+    fun insertCategoryList(list: List<CategoryEntity>){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.insertCategoryListToBD(list)
+        }
+    }
 
 }

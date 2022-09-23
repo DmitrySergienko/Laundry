@@ -85,18 +85,7 @@
             android:id="@+id/action_categoryFragment_to_homeClientFragment"
             app:destination="@id/homeClientFragment" />
         <action
-            android:id="@+id/action_categoryFragment_to_categoryItemFragment"
-            app:destination="@id/categoryItemFragment" />
-        <action
             android:id="@+id/action_categoryFragment_to_homeClientFragment2"
-            app:destination="@id/homeClientFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/categoryItemFragment"
-        android:name="com.laundry.CategoryItemFragment"
-        android:label="CategoryItemFragment" >
-        <action
-            android:id="@+id/action_categoryItemFragment_to_homeClientFragment"
             app:destination="@id/homeClientFragment" />
     </fragment>
 </navigation>
