@@ -2,6 +2,7 @@ package com.laundry.presentation.client
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import com.laundry.R
@@ -45,35 +46,28 @@ class HomeClientFragment
         }
 
 
-//        binding.homeContinueButton.setOnClickListener {
-//            if (increment > 0) {
-//                view.let { it1 ->
-//                    Navigation.findNavController(it1)
-//                        .navigate(R.id.action_homeClientFragment_to_deliveryFragment)
-//                }
-//            } else {
-//
-//                val toast = Toast.makeText(
-//                    requireContext(),
-//                    "TO MAKE AN ORDER PLEASE CHOOSE AT LEAST ONE ITEM", Toast.LENGTH_SHORT
-//                )
-//                toast.setGravity(Gravity.TOP, 500, 0)
-//                toast.show()
-//
-//            }
-//
-//        }
-//        binding.buttonTShirt.setOnClickListener {
-//            view.let { it1 ->
-//                Navigation.findNavController(it1)
-//                    .navigate(R.id.action_homeClientFragment_to_checkboxOrderFragment)
-//            }
-//        }
+        binding.completeOrderButton.setOnClickListener {
+            sharedViewModel.amount.observe(viewLifecycleOwner) { amount ->
+                if (amount > 0) {
+                    view.let { it1 ->
+                        Navigation.findNavController(it1)
+                            .navigate(R.id.action_homeClientFragment_to_deliveryFragment)
+                    }
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "TO MAKE AN ORDER PLEASE CHOOSE AT LEAST ONE ITEM",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                }
+            }
+        }
 
     }
 
 
-    private fun navigateToLogin(){
+    private fun navigateToLogin() {
         binding.homeButton.setOnClickListener {
             view?.let { it1 ->
                 Navigation.findNavController(it1)
@@ -82,19 +76,23 @@ class HomeClientFragment
         }
     }
 
-    private fun navigateToCategory(){
+    private fun navigateToCategory() {
+
         binding.clientHomeCv1.setOnClickListener {
             view?.let { it1 ->
-                Navigation.findNavController(it1).navigate(R.id.action_homeClientFragment_to_categoryFragment)
+                Navigation.findNavController(it1)
+                    .navigate(R.id.action_homeClientFragment_to_categoryFragment)
 
             }
         }
     }
 
-    private fun navigateToDelivery(){
-        binding.categoryButton.setOnClickListener {
+
+    private fun navigateToDelivery() {
+        binding.completeOrderButton.setOnClickListener {
             view?.let { it1 ->
-                Navigation.findNavController(it1).navigate(R.id.action_homeClientFragment_to_deliveryFragment)
+                Navigation.findNavController(it1)
+                    .navigate(R.id.action_homeClientFragment_to_deliveryFragment)
 
             }
         }

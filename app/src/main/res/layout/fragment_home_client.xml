@@ -453,7 +453,7 @@
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/category_button"
+        android:id="@+id/complete_order_button"
         android:layout_width="320dp"
         android:layout_height="70dp"
         android:layout_gravity="center"

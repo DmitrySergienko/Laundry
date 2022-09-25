@@ -48,8 +48,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:fontFamily="@font/poppins_bold"
-                android:hint="Shorts"
-                android:text="TextView"
                 android:textColorHint="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/image_view_pic"
