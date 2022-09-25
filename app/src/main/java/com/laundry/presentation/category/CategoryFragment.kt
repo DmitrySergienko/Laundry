@@ -33,7 +33,7 @@ class CategoryFragment :
         recyclerView() // initRecyclerView()
         navigateToHome() // navigate to home
 
-       insertListToDB(fakeItemList.list)
+       //insertListToDB(fakeItemList.list)
        // cleanDataFromDB()
 
 

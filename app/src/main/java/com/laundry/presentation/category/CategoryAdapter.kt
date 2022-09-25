@@ -12,7 +12,7 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryListHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryListHolder {
         return CategoryListHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.client_home_item, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.client_category_item, parent, false)
         )
 
     }
@@ -47,12 +47,10 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryListHolder>() {
                     categoryItem.count = 0
                 }
             }
-
-
-
         }
-
     }
+
+
 
     fun getTotalAmount(): Int {
         return itemList.sumOf { it.count }
