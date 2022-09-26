@@ -29,7 +29,6 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryListHolder>() {
             categoryItem.count += 1
             notifyItemChanged(position)
         }
-
         holder.binding.buttonMinus.setOnClickListener {
             if (categoryItem.count > 0) {
                 categoryItem.count -= 1
@@ -49,7 +48,6 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryListHolder>() {
             }
         }
     }
-
 
 
     fun getTotalAmount(): Int {

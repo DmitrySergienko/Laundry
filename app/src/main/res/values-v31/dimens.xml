@@ -2,9 +2,19 @@
 <resources>
 
     <dimen name="marginTopTextView">10dp</dimen>
-
-    <dimen name="text_size">48sp</dimen>
     <dimen name="margine_border">30sp</dimen>
+
     <dimen name="icon_size">80dp</dimen>
-    <dimen name="text_rate">16</dimen>
+    <dimen name="card_corner_radius">30dp</dimen>
+
+    <dimen name="text_10">10sp</dimen>
+    <dimen name="text_12">12sp</dimen>
+    <dimen name="text_14">14sp</dimen>
+    <dimen name="text_16">16sp</dimen>
+    <dimen name="text_18">18sp</dimen>
+    <dimen name="text_20">20sp</dimen>
+    <dimen name="text_22">22sp</dimen>
+    <dimen name="text_34">34sp</dimen>
+    <dimen name="text_32">32sp</dimen>
+
 </resources>

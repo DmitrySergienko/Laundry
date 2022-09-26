@@ -39,19 +39,19 @@
                         android:layout_marginStart="16dp"
                         android:backgroundTint="@color/light_grey_200"
                         android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
-                        app:layout_constraintBottom_toBottomOf="@+id/textView7"
+                        app:layout_constraintBottom_toBottomOf="@+id/text_view_title"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/textView7" />
+                        app:layout_constraintTop_toTopOf="@+id/text_view_title" />
 
                     <TextView
-                        android:id="@+id/textView7"
+                        android:id="@+id/text_view_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="50dp"
                         android:fontFamily="@font/poppins"
-                        android:text="Checkout"
+                        android:text="@string/checkout"
                         android:textColor="@color/black"
-                        android:textSize="20sp"
+                        android:textSize="@dimen/text_20"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -69,52 +69,52 @@
 
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/text_view_pick_up"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
                     android:layout_marginTop="30dp"
                     android:fontFamily="@font/poppins_black"
-                    android:text="Pick Up"
+                    android:text="@string/pick_up"
                     android:textColor="@color/black"
-                    android:textSize="32sp"
+                    android:textSize="@dimen/text_32"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView11"
+                    android:id="@+id/text_view_details"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:fontFamily="@font/poppins"
-                    android:text="Address details"
+                    android:text="@string/address_details"
                     android:textColor="@color/black"
-                    android:textSize="15sp"
-                    app:layout_constraintStart_toStartOf="@+id/textView8"
-                    app:layout_constraintTop_toBottomOf="@+id/textView8" />
+                    android:textSize="@dimen/text_16"
+                    app:layout_constraintStart_toStartOf="@+id/text_view_pick_up"
+                    app:layout_constraintTop_toBottomOf="@+id/text_view_pick_up" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/textView14"
+                    android:id="@+id/text_view_change"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="22dp"
                     android:fontFamily="@font/poppins"
-                    android:text="change"
+                    android:text="@string/change"
                     android:textColor="@color/blue_light_new"
-                    app:layout_constraintEnd_toEndOf="@+id/cardView"
-                    app:layout_constraintTop_toBottomOf="@+id/textView8" />
+                    app:layout_constraintEnd_toEndOf="@+id/cardView_address"
+                    app:layout_constraintTop_toBottomOf="@+id/text_view_pick_up" />
 
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView"
+                    android:id="@+id/cardView_address"
                     android:layout_width="312dp"
                     android:layout_height="160dp"
                     android:layout_marginTop="14dp"
                     app:cardCornerRadius="20dp"
-                    app:layout_constraintStart_toStartOf="@+id/textView8"
-                    app:layout_constraintTop_toBottomOf="@+id/textView11">
+                    app:layout_constraintStart_toStartOf="@+id/text_view_pick_up"
+                    app:layout_constraintTop_toBottomOf="@+id/text_view_details">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -122,33 +122,33 @@
 
 
                         <EditText
-                            android:id="@+id/editTextTextPersonName2"
+                            android:id="@+id/edit_text_person_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:fontFamily="@font/poppins_medium"
-                            android:hint="Mr. Dmitry"
+                            android:hint="@string/mr_dmitry"
                             android:inputType="textPersonName"
                             android:textColor="@color/black"
                             android:textColorHint="@color/black"
-                            android:textSize="17sp"
+                            android:textSize="@dimen/text_18"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <EditText
-                            android:id="@+id/editTextTextPostalAddress2"
+                            android:id="@+id/edit_text_address"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:fontFamily="@font/poppins"
-                            android:hint="Road D3  House 23, Pen Slack VIllage Lokogoma abuja"
+                            android:hint="@string/adddres_text"
                             android:inputType="textMultiLine"
                             android:textColor="@color/black"
                             android:textColorHint="@color/black"
-                            android:textSize="15sp"
-                            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
-                            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+                            android:textSize="@dimen/text_16"
+                            app:layout_constraintStart_toStartOf="@+id/edit_text_person_name"
+                            app:layout_constraintTop_toBottomOf="@+id/edit_text_person_name" />
 
                         <EditText
                             android:id="@+id/editTextPhone"
@@ -156,53 +156,53 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:fontFamily="@font/poppins"
-                            android:hint="+234 9053202443"
+                            android:hint="@string/phone_text"
                             android:inputType="phone"
                             android:textColorHint="@color/black"
-                            android:textSize="15sp"
-                            app:layout_constraintStart_toStartOf="@+id/editTextTextPostalAddress2"
-                            app:layout_constraintTop_toBottomOf="@+id/editTextTextPostalAddress2" />
+                            android:textSize="@dimen/text_16"
+                            app:layout_constraintStart_toStartOf="@+id/edit_text_address"
+                            app:layout_constraintTop_toBottomOf="@+id/edit_text_address" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/textView15"
+                    android:id="@+id/text_view_delivery_method"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="39dp"
+                    android:layout_marginTop="40dp"
                     android:fontFamily="@font/poppins"
-                    android:text="Delivery method"
+                    android:text="@string/delivery_method"
                     android:textColor="@color/black"
-                    android:textSize="17sp"
-                    app:layout_constraintStart_toStartOf="@+id/cardView"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView" />
+                    android:textSize="@dimen/text_16"
+                    app:layout_constraintStart_toStartOf="@+id/cardView_address"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView_address" />
 
 
                 <ImageView
-                    android:id="@+id/imageView6"
+                    android:id="@+id/image_view_del_norm"
                     android:layout_width="72dp"
                     android:layout_height="73dp"
                     android:layout_marginBottom="48dp"
                     android:src="@drawable/ic_delivery_norm"
                     app:layout_constraintBottom_toTopOf="@+id/textView19"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView7"
+                    app:layout_constraintEnd_toStartOf="@+id/image_view_del_ex"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <ImageView
-                    android:id="@+id/imageView7"
+                    android:id="@+id/image_view_del_ex"
                     android:layout_width="67dp"
                     android:layout_height="31dp"
                     android:layout_marginBottom="48dp"
                     android:src="@drawable/ic_delivery_semi"
                     app:layout_constraintBottom_toTopOf="@+id/textView19"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView8"
+                    app:layout_constraintEnd_toStartOf="@+id/image_view_ex"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/imageView6" />
+                    app:layout_constraintStart_toEndOf="@+id/image_view_del_norm" />
 
                 <ImageView
-                    android:id="@+id/imageView8"
+                    android:id="@+id/image_view_ex"
                     android:layout_width="69dp"
                     android:layout_height="54dp"
                     android:layout_marginBottom="48dp"
@@ -210,40 +210,40 @@
                     app:layout_constraintBottom_toTopOf="@+id/textView19"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/imageView7" />
+                    app:layout_constraintStart_toEndOf="@+id/image_view_del_ex" />
 
                 <TextView
                     android:id="@+id/textView16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="More Fonts..."
-                    android:text="Normal"
-                    android:textSize="12sp"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView6"
-                    app:layout_constraintStart_toStartOf="@+id/imageView6"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+                    android:text="@string/normal"
+                    android:textSize="@dimen/text_12"
+                    app:layout_constraintEnd_toEndOf="@+id/image_view_del_norm"
+                    app:layout_constraintStart_toStartOf="@+id/image_view_del_norm"
+                    app:layout_constraintTop_toBottomOf="@+id/image_view_del_norm" />
 
                 <TextView
                     android:id="@+id/textView17"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:text="Semi-Express"
-                    android:textSize="12sp"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView7"
-                    app:layout_constraintStart_toStartOf="@+id/imageView7"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+                    android:text="@string/semi_express"
+                    android:textSize="@dimen/text_12"
+                    app:layout_constraintEnd_toEndOf="@+id/image_view_del_ex"
+                    app:layout_constraintStart_toStartOf="@+id/image_view_del_ex"
+                    app:layout_constraintTop_toBottomOf="@+id/image_view_del_ex" />
 
                 <TextView
                     android:id="@+id/textView18"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:text="Express"
-                    android:textSize="12sp"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView8"
-                    app:layout_constraintStart_toStartOf="@+id/imageView8"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+                    android:text="@string/express"
+                    android:textSize="@dimen/text_12"
+                    app:layout_constraintEnd_toEndOf="@+id/image_view_ex"
+                    app:layout_constraintStart_toStartOf="@+id/image_view_ex"
+                    app:layout_constraintTop_toBottomOf="@+id/image_view_ex" />
 
                 <TextView
                     android:id="@+id/textView19"
@@ -251,12 +251,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="132dp"
                     android:fontFamily="@font/poppins"
-                    android:text="Pickup date and time"
+                    android:text="@string/pickup_date_and_time"
                     android:textColor="@color/black"
-                    android:textSize="17sp"
+                    android:textSize="@dimen/text_16"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView15" />
+                    app:layout_constraintTop_toBottomOf="@+id/text_view_delivery_method" />
 
 
                 <ImageButton
@@ -299,9 +299,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins"
-                            android:text="Total"
+                            android:text="@string/total"
                             android:textColor="@color/black"
-                            android:textSize="17sp"
+                            android:textSize="@dimen/text_16"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -312,9 +312,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_black"
-                            android:text="₦7,700"
+                            android:text="@string/_7_700"
                             android:textColor="@color/black"
-                            android:textSize="22sp"
+                            android:textSize="@dimen/text_22"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -333,10 +333,10 @@
                     android:layout_marginBottom="40dp"
                     android:backgroundTint="@color/blue_new"
                     android:fontFamily="@font/poppins_black"
-                    android:text="Proceed to payment"
+                    android:text="@string/proceed_to_payment"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="17sp"
+                    android:textSize="@dimen/text_18"
                     app:cornerRadius="30dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
