@@ -1,7 +1,6 @@
 package com.laundry.data
 
 import com.laundry.R
-import com.laundry.data.database.entities.CategoryEntity
 import com.laundry.domain.HomeClient
 
 data class ClientHome(

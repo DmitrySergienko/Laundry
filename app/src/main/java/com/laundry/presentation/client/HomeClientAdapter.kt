@@ -52,10 +52,11 @@ class HomeClientAdapter(
                 Navigation.findNavController(it)
                     .navigate(R.id.action_homeClientFragment_to_categoryFragment)
 
+            //save count in shared View Model
+            val itemPosition = position
+            itemPosition?.let { t -> sharedViewModel.saveMainItem(t) }
+
         }
-
-
-        // Navigation.createNavigateOnClickListener(R.id.action_homeClientFragment_to_categoryFragment)
 
     }
 
