@@ -8,7 +8,6 @@ import com.laundry.R
 import com.laundry.data.ServiceOrder
 import com.laundry.databinding.FragmentHomeServiceProviderBinding
 import com.laundry.presentation.BaseFragment
-import com.laundry.presentation.client.HomeClientAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

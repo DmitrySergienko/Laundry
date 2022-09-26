@@ -4,12 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import com.laundry.R
 import com.laundry.databinding.FragmentLoginBinding
+import com.laundry.domain.entity.LoginRequest
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
@@ -61,21 +65,45 @@ class LoginFragment : Fragment() {
 //        }
 
 
-
     }
 
-    private fun navigateToClientHome(){
+    private fun navigateToClientHome() {
         binding.loginButton.setOnClickListener {
-            view.let { it1 ->
-                if (it1 != null) {
-                    Navigation.findNavController(it1)
-                        .navigate(R.id.action_mainFragment_to_homeClientFragment)
+
+            val email = binding.editTextTextEmailAddress.text.toString()
+            val password = binding.editTextTextPassword.text.toString()
+
+            val myPost = LoginRequest(email, password)
+            viewModel.pushLogin(myPost)
+
+            lifecycleScope.launchWhenStarted {
+                viewModel.login.collectLatest {
+
+                    if (it.pLOGIN_FLAG == "Y") {
+                        view.let { it1 ->
+                            if (it1 != null) {
+                                Navigation.findNavController(it1)
+                                    .navigate(R.id.action_mainFragment_to_homeClientFragment)
+                            }
+                        }
+                    }else{
+                        Toast.makeText(
+                            requireContext(),
+                            "INCORRECT EMAIL OR PASSWORD",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
             }
+
+
+
+
+
         }
     }
 
-    private fun navigateToServProv(){
+    private fun navigateToServProv() {
 
         binding.serviceProviderButton.setOnClickListener {
             view.let { it ->
