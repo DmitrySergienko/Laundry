@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -24,9 +25,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:visibility="invisible"
                 android:backgroundTint="@color/light_grey_200"
                 android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="@+id/text_view_title"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/text_view_title" />
@@ -37,21 +38,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
                 android:fontFamily="@font/poppins"
-                android:visibility="invisible"
                 android:text="@string/toolbar_checkout"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/home_button"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginEnd="40dp"
+            <ImageButton
+                android:id="@+id/image_button_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="42dp"
+                android:layout_marginEnd="34dp"
                 android:src="@drawable/ic_baseline_logout_24"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

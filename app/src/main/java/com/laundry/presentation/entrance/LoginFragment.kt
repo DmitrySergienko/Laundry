@@ -32,6 +32,9 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        navigateToClientHome()
+        navigateToServProv() //navigate to Service provider screen
+
 //        binding.loginButton.setOnClickListener {
 //            val email = binding.editTextTextEmailAddress.text.toString()
 //            val password = binding.editTextTextPassword.text.toString()
@@ -57,10 +60,29 @@ class LoginFragment : Fragment() {
 //            }
 //        }
 
+
+
+    }
+
+    private fun navigateToClientHome(){
         binding.loginButton.setOnClickListener {
             view.let { it1 ->
-                Navigation.findNavController(it1)
-                    .navigate(R.id.action_mainFragment_to_homeClientFragment)
+                if (it1 != null) {
+                    Navigation.findNavController(it1)
+                        .navigate(R.id.action_mainFragment_to_homeClientFragment)
+                }
+            }
+        }
+    }
+
+    private fun navigateToServProv(){
+
+        binding.serviceProviderButton.setOnClickListener {
+            view.let { it ->
+                if (it != null) {
+                    Navigation.findNavController(it)
+                        .navigate(R.id.action_mainFragment_to_homeServiceProviderFragment)
+                }
             }
         }
 
