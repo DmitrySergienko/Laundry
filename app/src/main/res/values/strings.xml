@@ -47,6 +47,7 @@
     <string name="aed">AED</string>
     <string name="ironing">Ironing</string>
     <string name="order">Order #</string>
+    <string name="order_num">Order #</string>
 
     <!-- View pager names of fragments -->
     <string-array name="drop_down_home_item">

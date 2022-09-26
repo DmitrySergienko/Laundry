@@ -56,6 +56,9 @@
         <action
             android:id="@+id/action_homeServiceProviderFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_homeServiceProviderFragment_to_serviceProviderDetFragment"
+            app:destination="@id/serviceProviderDetFragment" />
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
@@ -89,5 +92,14 @@
         <action
             android:id="@+id/action_categoryFragment_to_homeClientFragment2"
             app:destination="@id/homeClientFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/serviceProviderDetFragment"
+        android:name="com.laundry.presentation.servicedetails.ServiceProviderDetFragment"
+        android:label="fragment_service_provider_det"
+        tools:layout="@layout/fragment_service_provider_det" >
+        <action
+            android:id="@+id/action_serviceProviderDetFragment_to_homeServiceProviderFragment"
+            app:destination="@id/homeServiceProviderFragment" />
     </fragment>
 </navigation>

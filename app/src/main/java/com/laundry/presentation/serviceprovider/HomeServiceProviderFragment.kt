@@ -24,7 +24,8 @@ class HomeServiceProviderFragment
 
         navigateToLogin()
 
-        recyclerView() // initRecyclerView()
+        recyclerView()
+
     }
 
     private fun recyclerView() {

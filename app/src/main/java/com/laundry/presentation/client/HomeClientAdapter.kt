@@ -47,17 +47,22 @@ class HomeClientAdapter(
             }
 
         }
+
+        navigateToSubCategory(holder,position)
+
+
+    }
+    private fun navigateToSubCategory(holder: HomeClientHolder, position: Int){
         holder.binding.rootRowLayout.setOnClickListener {
 
-                Navigation.findNavController(it)
-                    .navigate(R.id.action_homeClientFragment_to_categoryFragment)
+            Navigation.findNavController(it)
+                .navigate(R.id.action_homeClientFragment_to_categoryFragment)
 
             //save count in shared View Model
             val itemPosition = position
             itemPosition?.let { t -> sharedViewModel.saveMainItem(t) }
 
         }
-
     }
 
 
