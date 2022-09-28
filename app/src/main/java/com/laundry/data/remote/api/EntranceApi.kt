@@ -9,7 +9,8 @@ import retrofit2.http.POST
 
 interface EntranceApi {
 
-    @POST("pls/apex/pmstest/MobileApp/login")
+    //@POST("pls/apex/pmstest/MobileApp/login")
+    @POST("auth/login")
     suspend fun pushLogin(@Body post: LoginRequest): LoginResponse
 
     @POST("pls/apex/pmstest/MobileApp/registration")

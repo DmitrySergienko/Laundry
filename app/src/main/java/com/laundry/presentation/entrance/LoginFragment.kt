@@ -79,7 +79,7 @@ class LoginFragment : Fragment() {
             lifecycleScope.launchWhenStarted {
                 viewModel.login.collectLatest {
 
-                    if (it.pLOGIN_FLAG == "Y") {
+                    if (it.pLOGIN_FLAG == 200) {
                         view.let { it1 ->
                             if (it1 != null) {
                                 Navigation.findNavController(it1)
