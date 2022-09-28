@@ -1,7 +1,7 @@
 package com.laundry.di
 
-import com.laundry.data.remote.repository.EntranceUsecaseImpl
-import com.laundry.domain.usecases.EntranceUsecase
+import com.laundry.data.remote.repository.EntranceRepoImpl
+import com.laundry.domain.EntranceRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -14,6 +14,6 @@ abstract class UseCaseModule {
 
     @Binds
     @Singleton
-    abstract fun bindEntranceUsecase(impl: EntranceUsecaseImpl): EntranceUsecase
+    abstract fun bindEntranceUsecase(impl: EntranceRepoImpl): EntranceRepository
 
 }

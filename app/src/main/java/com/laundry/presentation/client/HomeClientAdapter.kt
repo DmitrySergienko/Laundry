@@ -7,7 +7,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.laundry.R
-import com.laundry.domain.HomeClient
+import com.laundry.domain.entity.local.HomeClient
 import com.laundry.presentation.category.SharedViewModel
 
 class HomeClientAdapter(

@@ -1,6 +1,6 @@
 package com.laundry.data
 
-import com.laundry.domain.Service
+import com.laundry.domain.entity.local.Service
 
 data class ServiceOrder(
     var list: List<Service> = listOf(

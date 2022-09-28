@@ -1,4 +1,4 @@
-package com.laundry.domain.entity
+package com.laundry.domain.entity.remote
 
 import com.google.gson.annotations.SerializedName
 

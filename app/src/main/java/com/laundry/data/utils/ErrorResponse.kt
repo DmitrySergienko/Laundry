@@ -1,7 +1,6 @@
 package com.laundry.data.utils
 
 import com.google.gson.annotations.SerializedName
-import java.lang.Exception
 
 data class ErrorResponse(
     @SerializedName("response")

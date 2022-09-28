@@ -1,4 +1,4 @@
-package com.laundry.domain
+package com.laundry.domain.entity.local
 
 data class HomeClient(
     val id: Int,

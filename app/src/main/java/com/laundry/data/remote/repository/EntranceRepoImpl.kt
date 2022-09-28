@@ -1,18 +1,18 @@
 package com.laundry.data.remote.repository
 
 import com.laundry.data.remote.api.EntranceApi
-import com.laundry.domain.entity.LoginRequest
-import com.laundry.domain.entity.LoginResponse
-import com.laundry.domain.entity.Registration
-import com.laundry.domain.usecases.EntranceUsecase
+import com.laundry.domain.EntranceRepository
+import com.laundry.domain.entity.remote.LoginRequest
+import com.laundry.domain.entity.remote.LoginResponse
+import com.laundry.domain.entity.remote.Registration
 import retrofit2.Response
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class EntranceUsecaseImpl @Inject constructor(
+class EntranceRepoImpl @Inject constructor(
     private val api: EntranceApi
-) : EntranceUsecase {
+) : EntranceRepository {
     override suspend fun pushLogin(post: LoginRequest): LoginResponse {
         return api.pushLogin(post)
     }

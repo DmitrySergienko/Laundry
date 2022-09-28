@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.laundry.R
-import com.laundry.domain.Service
+import com.laundry.domain.entity.local.Service
 
 class ServiceAdapter () : RecyclerView.Adapter<ServiceHolder>() {
 

@@ -11,7 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import com.laundry.R
 import com.laundry.databinding.FragmentLoginBinding
-import com.laundry.domain.entity.LoginRequest
+import com.laundry.domain.entity.remote.LoginRequest
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 

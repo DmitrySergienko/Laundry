@@ -1,7 +1,7 @@
 package com.laundry.data
 
 import com.laundry.R
-import com.laundry.domain.HomeClient
+import com.laundry.domain.entity.local.HomeClient
 
 data class ClientHome(
     var list: List<HomeClient> = listOf(
