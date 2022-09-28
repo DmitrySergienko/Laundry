@@ -30,4 +30,6 @@ object AppEntryModule {
     fun provideApi(retrofit: Retrofit) = retrofit.create(EntranceApi::class.java)
 
 
+
+
 }
