@@ -48,6 +48,17 @@
     <string name="ironing">Ironing</string>
     <string name="order">Order #</string>
     <string name="order_num">Order #</string>
+    <string name="create_account">Create Account</string>
+    <string name="confirm_your_password">Confirm your password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="enter_password">Enter password</string>
+    <string name="password_signup">Password</string>
+    <string name="enter_your_phone">Enter your phone</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="email_address">Email address</string>
+    <string name="enter_your_name">Enter your Name</string>
+    <string name="name">Name</string>
 
     <!-- View pager names of fragments -->
     <string-array name="drop_down_home_item">
