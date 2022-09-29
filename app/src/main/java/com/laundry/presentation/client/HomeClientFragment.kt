@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.laundry.R
 import com.laundry.data.ClientHome
+import com.laundry.data.repository.datastore.DataStoreViewModel
 import com.laundry.databinding.FragmentHomeClientBinding
 import com.laundry.presentation.BaseFragment
 import com.laundry.presentation.category.SharedViewModel
@@ -23,6 +25,8 @@ class HomeClientFragment
     private val fakeList = ClientHome()
 
 
+    private lateinit var dataStoreViewModel: DataStoreViewModel
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -31,6 +35,12 @@ class HomeClientFragment
         navigateToLogin() // navigate to Login fragment
 
         navigateToDelivery() // navigate to Delivery fragment
+
+        dataStoreViewModel = ViewModelProvider(this).get(DataStoreViewModel::class.java)
+        dataStoreViewModel.readFromDataStore.observe(viewLifecycleOwner,{myName->
+            binding.textViewClientName.text = myName
+
+        })
 
     }
 

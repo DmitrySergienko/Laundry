@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import com.laundry.R
+import com.laundry.data.repository.datastore.DataStoreViewModel
 import com.laundry.databinding.FragmentLoginBinding
 import com.laundry.domain.entity.remote.LoginRequest
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,6 +24,7 @@ class LoginFragment : Fragment() {
         get() = _binding!!
 
     private val viewModel: LoginViewModel by viewModels()
+    private lateinit var dataStoreViewModel: DataStoreViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,8 +41,22 @@ class LoginFragment : Fragment() {
 
         navigateToClientHome()
         navigateToServProv() //navigate to Service provider screen
-
         initObservers() // observe error response
+
+
+        dataStoreViewModel = ViewModelProvider(this).get(DataStoreViewModel::class.java)
+        binding.forgotPasswordButton.setOnClickListener {
+            dataStoreViewModel.saveToDataStore("123")
+
+            view.let { it1 ->
+                if (it1 != null) {
+                    Navigation.findNavController(it1)
+                        .navigate(R.id.action_mainFragment_to_homeClientFragment)
+                }
+            }
+        }
+
+
     }
 
     private fun initObservers() {
