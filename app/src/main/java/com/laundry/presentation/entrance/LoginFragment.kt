@@ -39,32 +39,13 @@ class LoginFragment : Fragment() {
         navigateToClientHome()
         navigateToServProv() //navigate to Service provider screen
 
-//        binding.loginButton.setOnClickListener {
-//            val email = binding.editTextTextEmailAddress.text.toString()
-//            val password = binding.editTextTextPassword.text.toString()
-//
-//            val myPost = LoginRequest(email, password)
-//            viewModel.pushLogin(myPost)
-//
-//            lifecycleScope.launchWhenStarted {
-//                viewModel.login.collectLatest {
-//                    if (it.pLOGIN_FLAG == "Y") {
-//
-//                        view.let { it1 ->
-//                            Navigation.findNavController(it1).navigate(R.id.action_mainFragment_to_homeClientFragment)
-//                        }
-//                    } else {
-//                        Toast.makeText(
-//                            requireContext(),
-//                            "INCORRECT EMAIL OR PASSWORD",
-//                            Toast.LENGTH_SHORT
-//                        ).show()
-//                    }
-//                }
-//            }
-//        }
+        initObservers() // observe error response
+    }
 
-
+    private fun initObservers() {
+        viewModel.showError.observe(viewLifecycleOwner){
+            Toast.makeText(requireContext(), it,Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun navigateToClientHome() {
@@ -75,31 +56,26 @@ class LoginFragment : Fragment() {
 
             val myPost = LoginRequest(email, password)
             viewModel.pushLogin(myPost)
+        }
 
-            lifecycleScope.launchWhenStarted {
-                viewModel.login.collectLatest {
+        lifecycleScope.launchWhenStarted {
+            viewModel.login.collectLatest {
 
-                    if (it.pLOGIN_FLAG == 200) {
-                        view.let { it1 ->
-                            if (it1 != null) {
-                                Navigation.findNavController(it1)
-                                    .navigate(R.id.action_mainFragment_to_homeClientFragment)
-                            }
+                if (it.pLOGIN_FLAG == 200) {
+                    view.let { it1 ->
+                        if (it1 != null) {
+                            Navigation.findNavController(it1)
+                                .navigate(R.id.action_mainFragment_to_homeClientFragment)
                         }
-                    }else{
-                        Toast.makeText(
-                            requireContext(),
-                            "INCORRECT EMAIL OR PASSWORD",
-                            Toast.LENGTH_SHORT
-                        ).show()
                     }
+                }else{
+                    Toast.makeText(
+                        requireContext(),
+                        "INCORRECT EMAIL OR PASSWORD",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
-
-
-
-
-
         }
     }
 
@@ -113,13 +89,10 @@ class LoginFragment : Fragment() {
                 }
             }
         }
-
     }
-
 
     companion object {
         @JvmStatic
         fun newInstance() = LoginFragment()
     }
-
 }

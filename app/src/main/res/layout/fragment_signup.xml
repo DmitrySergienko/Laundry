@@ -170,12 +170,12 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_confirm_password" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/login_button"
+                    android:id="@+id/create_account_button"
                     android:layout_width="320dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="66dp"
-                    android:layout_marginBottom="36dp"
+                    android:layout_marginBottom="50dp"
                     android:backgroundTint="@color/blue_new"
                     android:fontFamily="@font/poppins"
                     android:text="Create Account"
@@ -184,6 +184,7 @@
                     android:textSize="17sp"
                     android:textStyle="bold"
                     app:cornerRadius="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/et_confirm_password" />

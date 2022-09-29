@@ -1,7 +1,9 @@
 package com.laundry.di
 
 import com.laundry.data.remote.repository.EntranceRepoImpl
+import com.laundry.data.remote.repository.SignupRepoImpl
 import com.laundry.domain.EntranceRepository
+import com.laundry.domain.SignupRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -15,5 +17,10 @@ abstract class UseCaseModule {
     @Binds
     @Singleton
     abstract fun bindEntranceUsecase(impl: EntranceRepoImpl): EntranceRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindSignupUsecase(impl: SignupRepoImpl): SignupRepository
+
 
 }

@@ -1,9 +1,8 @@
 package com.laundry.presentation.entrance
 
-import androidx.lifecycle.ViewModel
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.laundry.data.utils.DataState
-import com.laundry.domain.EntranceRepository
 import com.laundry.domain.entity.remote.LoginRequest
 import com.laundry.domain.entity.remote.LoginResponse
 import com.laundry.domain.usecases.EntranceUsecase
@@ -13,6 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -23,6 +23,8 @@ class LoginViewModel @Inject constructor(
     private val _login = MutableSharedFlow<LoginResponse>()
     val login = _login.asSharedFlow()
 
+
+
     fun pushLogin(post: LoginRequest) {
 
         viewModelScope.launch(Dispatchers.IO) {
@@ -31,23 +33,22 @@ class LoginViewModel @Inject constructor(
 
                 when (response) {
                     is DataState.Success -> {
+                        Log.d("loginRe","success")
                         response.value?.let { resp ->
-
                             _login.emit(resp)
                         }
                     }
                     is DataState.GenericError -> {
-                        response.error?.errorResponse?.errorMessage.let { err ->
-                            showError.value = err
 
+                        response.error?.errorResponse?.let { err ->
+                            //Log.d("loginRe","error $err")
+                            withContext(Dispatchers.Main){
+                                showError.value = "INCORRECT EMAIL OR PASSWORD"
+                            }
                         }
                     }
                 }
-
             }
-
-
         }
     }
-
 }

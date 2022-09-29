@@ -3,12 +3,14 @@ package com.laundry.data.utils
 import com.google.gson.annotations.SerializedName
 
 data class ErrorResponse(
-    @SerializedName("response")
-    val errorResponse: ErrorData? = null,
-): Exception()
-data class ErrorData(
-    @SerializedName("errCode")
+
+    @SerializedName("statusCode")
     val code: Int? = null,
+
     @SerializedName("message")
-    val errorMessage: String? = null
-)
+    val errorMessage: List<String>? = null,
+
+    @SerializedName("error")
+    val errorResponse: String? = null,
+
+): Exception()

@@ -1,6 +1,7 @@
 package com.laundry.di
 
 import com.laundry.data.remote.api.EntranceApi
+import com.laundry.data.remote.api.SignupApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -28,6 +29,10 @@ object AppEntryModule {
     @Provides
     @Singleton
     fun provideApi(retrofit: Retrofit) = retrofit.create(EntranceApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideApiForSignUp(retrofit: Retrofit) = retrofit.create(SignupApi::class.java)
 
 
 

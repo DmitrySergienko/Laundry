@@ -21,7 +21,7 @@ abstract class NetworkHelper<in P, out R> {
                         emit(
                             DataState.GenericError(
                                 null,
-                                ErrorResponse(ErrorData(404, "Page Not Found."))
+                                ErrorResponse(404, listOf(),"Page Not Found")
                             )
                         )
                     } else {
@@ -34,7 +34,7 @@ abstract class NetworkHelper<in P, out R> {
                     emit(
                         DataState.GenericError(
                             code,
-                            ErrorResponse(ErrorData(code, "Unknown Host"))
+                            ErrorResponse(code, listOf(),"Unknown Host")
                         )
                     )
                 }
@@ -42,7 +42,7 @@ abstract class NetworkHelper<in P, out R> {
                     emit(
                         DataState.GenericError(
                             null,
-                            ErrorResponse(ErrorData(400, "Something went wrong!"))
+                            ErrorResponse(400, listOf(),"")
                         )
                     )
                 }
