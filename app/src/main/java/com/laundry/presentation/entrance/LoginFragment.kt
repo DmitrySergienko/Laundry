@@ -44,24 +44,11 @@ class LoginFragment : Fragment() {
         initObservers() // observe error response
 
 
-        dataStoreViewModel = ViewModelProvider(this).get(DataStoreViewModel::class.java)
-        binding.forgotPasswordButton.setOnClickListener {
-            dataStoreViewModel.saveToDataStore("123")
-
-            view.let { it1 ->
-                if (it1 != null) {
-                    Navigation.findNavController(it1)
-                        .navigate(R.id.action_mainFragment_to_homeClientFragment)
-                }
-            }
-        }
-
-
     }
 
     private fun initObservers() {
-        viewModel.showError.observe(viewLifecycleOwner){
-            Toast.makeText(requireContext(), it,Toast.LENGTH_LONG).show()
+        viewModel.showError.observe(viewLifecycleOwner) {
+            Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
         }
     }
 
@@ -80,12 +67,17 @@ class LoginFragment : Fragment() {
 
                 if (it.pLOGIN_FLAG == 200) {
                     view.let { it1 ->
+                        dataStoreViewModel =
+                            ViewModelProvider(this@LoginFragment).get(DataStoreViewModel::class.java)
+                        dataStoreViewModel.saveToDataStore(it.pRESPONSE_DATA?.pFULL_NAME.toString())
+
+
                         if (it1 != null) {
                             Navigation.findNavController(it1)
                                 .navigate(R.id.action_mainFragment_to_homeClientFragment)
                         }
                     }
-                }else{
+                } else {
                     Toast.makeText(
                         requireContext(),
                         "INCORRECT EMAIL OR PASSWORD",
