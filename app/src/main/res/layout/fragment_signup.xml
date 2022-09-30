@@ -47,10 +47,10 @@
                     android:layout_marginStart="50dp"
                     android:layout_marginTop="6dp"
                     android:alpha="0.5"
+                    android:autofillHints="name"
                     android:ems="10"
                     android:fontFamily="@font/poppins_black"
                     android:hint="@string/enter_your_name"
-                    android:autofillHints="name"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:textSize="@dimen/text_16"
@@ -105,8 +105,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
                     android:layout_marginTop="6dp"
-                    android:autofillHints="phone"
                     android:alpha="0.5"
+                    android:autofillHints="phone"
                     android:ems="10"
                     android:fontFamily="@font/poppins_black"
                     android:hint="@string/enter_your_phone"
@@ -135,9 +135,9 @@
                     android:layout_marginStart="50dp"
                     android:layout_marginTop="7dp"
                     android:alpha="0.5"
+                    android:autofillHints="password"
                     android:ems="10"
                     android:fontFamily="@font/poppins_black"
-                    android:autofillHints="password"
                     android:hint="@string/enter_password"
                     android:inputType="textPassword"
                     android:textSize="@dimen/text_16"
@@ -163,8 +163,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
                     android:layout_marginTop="7dp"
-                    android:autofillHints="password"
                     android:alpha="0.5"
+                    android:autofillHints="password"
                     android:ems="10"
                     android:fontFamily="@font/poppins_black"
                     android:hint="@string/confirm_your_password"
@@ -172,6 +172,31 @@
                     android:textSize="@dimen/text_16"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_confirm_password" />
+
+
+                <CheckBox
+                    android:id="@+id/checkbox_service_provider"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="24dp"
+                    android:focusable="false"
+                    android:focusableInTouchMode="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_confirm_password" />
+
+                <TextView
+                    android:id="@+id/tv_service_checkb"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/tick_box_if_you_register_as_n_service_provider"
+                    android:textColor="@color/blue_new"
+                    android:textSize="@dimen/text_14"
+                    app:layout_constraintStart_toEndOf="@+id/checkbox_service_provider"
+                    app:layout_constraintTop_toTopOf="@+id/checkbox_service_provider" />
+
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/create_account_button"
@@ -191,7 +216,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/et_confirm_password" />
+                    app:layout_constraintTop_toBottomOf="@+id/checkbox_service_provider" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

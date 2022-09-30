@@ -34,7 +34,7 @@ class DataStoreRepository(context: Context) {
     val readFromDataStore: Flow<String> = dataStore.data
         .catch { exception ->
             if (exception is IOException) {
-                Log.d("DataStore", exception.message.toString())
+               // Log.d("DataStore", exception.message.toString())
                 emit(emptyPreferences())
             } else {
                 throw exception

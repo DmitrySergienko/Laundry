@@ -59,6 +59,7 @@
     <string name="email_address">Email address</string>
     <string name="enter_your_name">Enter your Name</string>
     <string name="name">Name</string>
+    <string name="tick_box_if_you_register_as_n_service_provider">Tick box if you register as\n Service Provider</string>
 
     <!-- View pager names of fragments -->
     <string-array name="drop_down_home_item">

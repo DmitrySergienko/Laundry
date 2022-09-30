@@ -20,5 +20,5 @@ data class Registration(
     val pCONFIRMPASSWORD: String? = null,
 
     @field:SerializedName("role")
-    val pROLE: Int? = null
+    val pROLE: String? = null
 )
