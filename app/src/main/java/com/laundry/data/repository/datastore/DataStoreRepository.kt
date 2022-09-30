@@ -19,6 +19,7 @@ class DataStoreRepository(context: Context) {
 
     private object PrefernceKey {
         val name = preferencesKey<String>("my_name")
+
     }
 
     private val dataStore: DataStore<Preferences> = context.createDataStore(
@@ -28,6 +29,7 @@ class DataStoreRepository(context: Context) {
     suspend fun saveInDataStore(value: String) {
         dataStore.edit { preference ->
             preference[PrefernceKey.name] = value
+
         }
     }
 
@@ -43,6 +45,7 @@ class DataStoreRepository(context: Context) {
         .map { preference->
             val myName = preference[PrefernceKey.name] ?: "none"
             myName
+
         }
 
 }

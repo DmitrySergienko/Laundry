@@ -43,7 +43,6 @@ class LoginFragment : Fragment() {
         navigateToServProv() //navigate to Service provider screen
         initObservers() // observe error response
 
-
     }
 
     private fun initObservers() {
@@ -67,9 +66,12 @@ class LoginFragment : Fragment() {
 
                 if (it.pLOGIN_FLAG == 200) {
                     view.let { it1 ->
+
+                        //save Client Name in DataStore
                         dataStoreViewModel =
                             ViewModelProvider(this@LoginFragment).get(DataStoreViewModel::class.java)
                         dataStoreViewModel.saveToDataStore(it.pRESPONSE_DATA?.pFULL_NAME.toString())
+                        dataStoreViewModel.saveToDataStore(it.pTOKEN.toString())
 
 
                         if (it1 != null) {
@@ -78,15 +80,13 @@ class LoginFragment : Fragment() {
                         }
                     }
                 } else {
-                    Toast.makeText(
-                        requireContext(),
-                        "INCORRECT EMAIL OR PASSWORD",
-                        Toast.LENGTH_SHORT
+                    Toast.makeText(requireContext(), "INCORRECT EMAIL OR PASSWORD", Toast.LENGTH_SHORT
                     ).show()
                 }
             }
         }
     }
+
 
     private fun navigateToServProv() {
 

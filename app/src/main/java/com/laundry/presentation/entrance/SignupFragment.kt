@@ -65,8 +65,8 @@ private fun initSignup() {
             Toast.makeText(requireContext(), "PLEASE COMPLETE ALL FIELDS", Toast.LENGTH_SHORT)
                 .show()
         } else {
-            Toast.makeText(requireContext(), "$serviseCheckbox", Toast.LENGTH_SHORT)
-                .show()
+//            Toast.makeText(requireContext(), "$serviseCheckbox", Toast.LENGTH_SHORT)
+//                .show()
             val myPost = Registration(
                 fullName,
                 email,

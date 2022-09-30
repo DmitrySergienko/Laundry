@@ -36,10 +36,14 @@ class HomeClientFragment
 
         navigateToDelivery() // navigate to Delivery fragment
 
+        showClientName() //save Client Name in DataStore and show in the field
+
+    }
+
+    private fun showClientName(){
         dataStoreViewModel = ViewModelProvider(this).get(DataStoreViewModel::class.java)
         dataStoreViewModel.readFromDataStore.observe(viewLifecycleOwner,{myName->
             binding.textViewClientName.text = myName
-
         })
 
     }
