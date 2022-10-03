@@ -71,7 +71,7 @@ class LoginFragment : Fragment() {
                         dataStoreViewModel =
                             ViewModelProvider(this@LoginFragment).get(DataStoreViewModel::class.java)
                         dataStoreViewModel.saveToDataStore(it.pRESPONSE_DATA?.pFULL_NAME.toString())
-                        dataStoreViewModel.saveToDataStore(it.pTOKEN.toString())
+                        //dataStoreViewModel.saveToDataStore(it.pTOKEN.toString())
 
 
                         if (it1 != null) {
