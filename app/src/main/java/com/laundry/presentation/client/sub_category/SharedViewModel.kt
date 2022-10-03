@@ -1,4 +1,4 @@
-package com.laundry.presentation.category
+package com.laundry.presentation.client.sub_category
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,4 +1,4 @@
-package com.laundry.presentation.client
+package com.laundry.presentation.client.category
 
 import android.os.Bundle
 import android.view.View
@@ -12,7 +12,7 @@ import com.laundry.data.ClientHome
 import com.laundry.data.repository.datastore.DataStoreViewModel
 import com.laundry.databinding.FragmentHomeClientBinding
 import com.laundry.presentation.BaseFragment
-import com.laundry.presentation.category.SharedViewModel
+import com.laundry.presentation.client.sub_category.SharedViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 

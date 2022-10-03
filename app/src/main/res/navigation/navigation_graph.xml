@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeClientFragment"
-        android:name="com.laundry.presentation.client.HomeClientFragment"
+        android:name="com.laundry.presentation.client.category.HomeClientFragment"
         android:label="fragment_home_client"
         tools:layout="@layout/fragment_home_client" >
         <action
@@ -83,7 +83,7 @@
     </fragment>
     <fragment
         android:id="@+id/categoryFragment"
-        android:name="com.laundry.presentation.category.CategoryFragment"
+        android:name="com.laundry.presentation.client.sub_category.CategoryFragment"
         android:label="fragment_category"
         tools:layout="@layout/fragment_category" >
         <action

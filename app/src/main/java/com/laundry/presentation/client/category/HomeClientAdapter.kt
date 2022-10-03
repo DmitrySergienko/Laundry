@@ -1,4 +1,4 @@
-package com.laundry.presentation.client
+package com.laundry.presentation.client.category
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.laundry.R
 import com.laundry.domain.entity.local.HomeClient
-import com.laundry.presentation.category.SharedViewModel
+import com.laundry.presentation.client.sub_category.SharedViewModel
 
 class HomeClientAdapter(
     private val sharedViewModel: SharedViewModel,

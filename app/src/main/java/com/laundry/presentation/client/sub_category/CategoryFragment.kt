@@ -1,4 +1,4 @@
-package com.laundry.presentation.category
+package com.laundry.presentation.client.sub_category
 
 import android.os.Bundle
 import android.view.View

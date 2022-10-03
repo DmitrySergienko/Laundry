@@ -1,4 +1,4 @@
-package com.laundry.presentation.client
+package com.laundry.presentation.client.category
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

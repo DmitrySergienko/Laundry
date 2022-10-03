@@ -1,4 +1,4 @@
-package com.laundry.presentation.category
+package com.laundry.presentation.client.sub_category
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
