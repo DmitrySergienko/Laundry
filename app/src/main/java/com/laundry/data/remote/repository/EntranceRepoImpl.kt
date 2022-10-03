@@ -1,6 +1,6 @@
 package com.laundry.data.remote.repository
 
-import com.laundry.data.remote.api.EntranceApi
+import com.laundry.data.remote.api.AuthApi
 import com.laundry.data.utils.DataState
 import com.laundry.domain.EntranceRepository
 import com.laundry.domain.entity.remote.LoginRequest
@@ -14,7 +14,7 @@ import javax.inject.Singleton
 
 @Singleton
 class EntranceRepoImpl @Inject constructor(
-    private val api: EntranceApi
+    private val api: AuthApi
 ) : EntranceRepository {
 
 

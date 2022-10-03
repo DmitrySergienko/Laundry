@@ -15,6 +15,8 @@ import com.laundry.data.repository.datastore.DataStoreViewModel
 import com.laundry.databinding.FragmentLoginBinding
 import com.laundry.domain.entity.remote.LoginRequest
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
@@ -25,6 +27,9 @@ class LoginFragment : Fragment() {
 
     private val viewModel: LoginViewModel by viewModels()
     private lateinit var dataStoreViewModel: DataStoreViewModel
+
+    val scope = CoroutineScope(Dispatchers.IO)
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -71,8 +76,6 @@ class LoginFragment : Fragment() {
                         dataStoreViewModel =
                             ViewModelProvider(this@LoginFragment).get(DataStoreViewModel::class.java)
                         dataStoreViewModel.saveToDataStore(it.pRESPONSE_DATA?.pFULL_NAME.toString())
-                        //dataStoreViewModel.saveToDataStore(it.pTOKEN.toString())
-
 
                         if (it1 != null) {
                             Navigation.findNavController(it1)
@@ -80,7 +83,8 @@ class LoginFragment : Fragment() {
                         }
                     }
                 } else {
-                    Toast.makeText(requireContext(), "INCORRECT EMAIL OR PASSWORD", Toast.LENGTH_SHORT
+                    Toast.makeText(
+                        requireContext(), "INCORRECT EMAIL OR PASSWORD", Toast.LENGTH_SHORT
                     ).show()
                 }
             }

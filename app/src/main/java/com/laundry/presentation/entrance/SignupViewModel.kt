@@ -32,7 +32,7 @@ class SignupViewModel @Inject constructor(
 
                 when (response) {
                     is DataState.Success -> {
-                        Log.d("SignRe", "success")
+                        Log.d("VVV", "sign_up_success")
                         response.value?.let { resp ->
                             _signup.emit(resp)
                         }

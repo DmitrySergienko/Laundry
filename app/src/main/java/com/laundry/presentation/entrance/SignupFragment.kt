@@ -81,7 +81,7 @@ private fun initSignup() {
                 viewModel.signup.collectLatest {
                     when (it.pLOGIN_FLAG) {
                         200 -> {
-                            Log.d("VVV", "is success $it")
+                            Log.d("VVV", "is success from Signup Fragment$it")
                             view?.let { it1 ->
                                 Navigation.findNavController(it1)
                                     .navigate(R.id.action_mainFragment_to_homeClientFragment)

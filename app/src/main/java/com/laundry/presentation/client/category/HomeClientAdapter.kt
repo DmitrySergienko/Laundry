@@ -7,7 +7,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.laundry.R
-import com.laundry.domain.entity.local.HomeClient
+import com.laundry.domain.entity.remote.CategoriesItem
 import com.laundry.presentation.client.sub_category.SharedViewModel
 
 class HomeClientAdapter(
@@ -16,7 +16,7 @@ class HomeClientAdapter(
 
 ) : RecyclerView.Adapter<HomeClientHolder>() {
 
-    private var itemList = mutableListOf<HomeClient>()
+    private var itemList = mutableListOf<CategoriesItem>()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeClientHolder {
@@ -29,9 +29,9 @@ class HomeClientAdapter(
     override fun onBindViewHolder(holder: HomeClientHolder, position: Int) {
 
         val categoryItem = itemList[position]
-        holder.binding.imageViewHome.setImageResource(categoryItem.image)
-        holder.binding.textViewMain.text = categoryItem.name
-        holder.binding.textViewQuantity.text = categoryItem.quantity.toString()
+        //categoryItem.image?.let { holder.binding.imageViewHome.setImageResource(it.toInt()) }
+        holder.binding.textViewMain.text = categoryItem.text
+        //holder.binding.textViewQuantity.text = categoryItem.quantity.toString()
 
         //get count of click from share view model
         sharedViewModel.amount.observe(viewLifecycleOwner) { amount ->
@@ -71,7 +71,11 @@ class HomeClientAdapter(
 //        }
 
 
-    fun setData(category: List<HomeClient>) {
+//    fun setData(category: List<HomeClient>) {
+//        this.itemList.addAll(category)
+//        notifyDataSetChanged()
+//    }
+    fun setDataFromApi(category: List<CategoriesItem>) {
         this.itemList.addAll(category)
         notifyDataSetChanged()
     }

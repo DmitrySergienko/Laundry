@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
-class CategoryTokenImpl @Inject constructor(
+class CategoryRepoImpl @Inject constructor(
     private val api: CategoryApi
 ): CategoryRepository {
 

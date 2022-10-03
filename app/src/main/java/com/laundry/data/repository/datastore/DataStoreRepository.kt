@@ -47,5 +47,33 @@ class DataStoreRepository(context: Context) {
 
         }
 
+//    suspend fun save(key: String, value: String) {
+//        val dataStoreKey = preferencesKey<String>(key)
+//        dataStore.edit { settings ->
+//            settings[dataStoreKey] = value
+//        }
+//    }
+//    suspend fun read(key: String): String? {
+//        val dataStoreKey = preferencesKey<String>(key)
+//        val preferences = dataStore.data.first()
+//        return preferences[dataStoreKey]
+//    }
+
 }
+
+//  binding.btnSave.setOnClickListener {
+//            lifecycleScope.launch {
+//                save(
+//                        binding.etSaveKey.text.toString(),
+//                        binding.etSaveValue.text.toString()
+//                )
+//            }
+//        }
+//
+//        binding.btnRead.setOnClickListener {
+//            lifecycleScope.launch {
+//                val value = read(binding.etReadkey.text.toString())
+//                binding.tvReadValue.text = value ?: "No value found"
+//            }
+//        }
 

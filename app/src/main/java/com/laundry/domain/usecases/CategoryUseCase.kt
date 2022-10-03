@@ -12,9 +12,9 @@ class CategoryUseCase @Inject constructor(
 
 ) : NetworkHelper<CategoryUseCase.Params, CategoryResponse>() {
 
-    class Params( val request: CategoryResponse)
+    class Params
 
-    override suspend fun buildUseCase(parameter: CategoryUseCase.Params): Flow<DataState<CategoryResponse>> {
+    override suspend fun buildUseCase(parameter: Params): Flow<DataState<CategoryResponse>> {
         return categoryRepository.getCategory()
     }
 

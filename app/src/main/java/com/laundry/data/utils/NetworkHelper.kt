@@ -1,5 +1,6 @@
 package com.laundry.data.utils
 
+import android.util.Log
 import com.google.gson.Gson
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.buffer
@@ -14,10 +15,12 @@ abstract class NetworkHelper<in P, out R> {
 
     suspend fun execute(parameter: P): Flow<DataState<R>> {
         return buildUseCase(parameter).buffer().catch { e ->
+            Log.d("requestErr",e.message.toString())
             when (e) {
                 is HttpException -> {
                     val code = e.code()
                     if (code == 404) {
+
                         emit(
                             DataState.GenericError(
                                 null,
@@ -42,7 +45,7 @@ abstract class NetworkHelper<in P, out R> {
                     emit(
                         DataState.GenericError(
                             null,
-                            ErrorResponse(400, listOf(),"")
+                            ErrorResponse(400, listOf(),"400")
                         )
                     )
                 }

@@ -1,11 +1,10 @@
-package com.laundry.presentation.entrance
+package com.laundry.presentation.client.category
 
 import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.laundry.data.utils.DataState
-import com.laundry.domain.entity.remote.LoginRequest
-import com.laundry.domain.entity.remote.LoginResponse
-import com.laundry.domain.usecases.EntranceUsecase
+import com.laundry.domain.entity.remote.CategoryResponse
+import com.laundry.domain.usecases.CategoryUseCase
 import com.laundry.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -16,39 +15,37 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(
-    private val usecase: EntranceUsecase
+class HomeClientViewModel @Inject constructor(
+    private val usecase: CategoryUseCase
 ) : BaseViewModel() {
 
-    private val _login = MutableSharedFlow<LoginResponse>()
-    val login = _login.asSharedFlow()
+    private val _category = MutableSharedFlow<CategoryResponse>()
+    val category = _category.asSharedFlow()
 
-
-
-    fun pushLogin(post: LoginRequest) {
+    fun getCategory() {
 
         viewModelScope.launch(Dispatchers.IO) {
 
-            usecase.execute(EntranceUsecase.Params(post)).collect { response ->
-
+            usecase.execute(CategoryUseCase.Params()).collect { response ->
                 when (response) {
                     is DataState.Success -> {
-                        Log.d("VVV","login_success")
+                        Log.d("VVV", "success from home category")
                         response.value?.let { resp ->
-                            _login.emit(resp)
+                            _category.emit(resp)
                         }
                     }
                     is DataState.GenericError -> {
 
                         response.error?.errorResponse?.let { err ->
-                            Log.d("VVV","error from ViewModel $err")
-                            withContext(Dispatchers.Main){
+                            Log.d("VVV","error from HomeCatViewModel $err")
+                            withContext(Dispatchers.Main) {
                                 showError.value = "INCORRECT EMAIL OR PASSWORD"
                             }
                         }
                     }
                 }
             }
+
         }
     }
 }
