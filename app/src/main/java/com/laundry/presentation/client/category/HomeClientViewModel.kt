@@ -29,7 +29,7 @@ class HomeClientViewModel @Inject constructor(
             usecase.execute(CategoryUseCase.Params()).collect { response ->
                 when (response) {
                     is DataState.Success -> {
-                        Log.d("VVV", "success from home category")
+                       // Log.d("VVV", "success from home category")
                         response.value?.let { resp ->
                             _category.emit(resp)
                         }
@@ -37,7 +37,7 @@ class HomeClientViewModel @Inject constructor(
                     is DataState.GenericError -> {
 
                         response.error?.errorResponse?.let { err ->
-                            Log.d("VVV","error from HomeCatViewModel $err")
+                            //Log.d("VVV","error from HomeCatViewModel $err")
                             withContext(Dispatchers.Main) {
                                 showError.value = "INCORRECT EMAIL OR PASSWORD"
                             }

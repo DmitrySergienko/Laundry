@@ -6,18 +6,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.laundry.R
 import com.laundry.data.database.entities.CategoryEntity
 
-class CategoryAdapter : RecyclerView.Adapter<CategoryListHolder>() {
+class SubCategoryAdapter : RecyclerView.Adapter<SubCategoryListHolder>() {
 
     private var itemList = mutableListOf<CategoryEntity>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryListHolder {
-        return CategoryListHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SubCategoryListHolder {
+        return SubCategoryListHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.client_category_item, parent, false)
         )
 
     }
 
-    override fun onBindViewHolder(holder: CategoryListHolder, position: Int) {
+    override fun onBindViewHolder(holder: SubCategoryListHolder, position: Int) {
 
         val categoryItem = itemList[position]
         holder.binding.imageViewPic.setImageResource(categoryItem.image)

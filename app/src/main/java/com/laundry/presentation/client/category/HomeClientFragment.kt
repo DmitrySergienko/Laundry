@@ -49,14 +49,8 @@ class HomeClientFragment
 
         showClientName() //save Client Name in DataStore and show in the field
 
-        //initRequestToServer()
 
     }
-
-//    private fun initRequestToServer(){
-//        binding.button.setOnClickListener {
-//            viewModel.getCategory()}
-//    }
 
     private fun showClientName() {
         dataStoreViewModel = ViewModelProvider(this).get(DataStoreViewModel::class.java)
