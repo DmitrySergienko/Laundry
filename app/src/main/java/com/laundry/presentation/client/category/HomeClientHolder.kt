@@ -7,6 +7,6 @@ import com.laundry.databinding.HomeClientItemBinding
 
 class HomeClientHolder (item: View) : RecyclerView.ViewHolder(item) {
         val binding = HomeClientItemBinding.bind(item)
-
+        
 
     }

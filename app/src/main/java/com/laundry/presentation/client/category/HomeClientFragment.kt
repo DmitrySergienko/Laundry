@@ -49,14 +49,9 @@ class HomeClientFragment
 
         showClientName() //save Client Name in DataStore and show in the field
 
-        //initRequestToServer()
+
 
     }
-
-//    private fun initRequestToServer(){
-//        binding.button.setOnClickListener {
-//            viewModel.getCategory()}
-//    }
 
     private fun showClientName() {
         dataStoreViewModel = ViewModelProvider(this).get(DataStoreViewModel::class.java)
@@ -74,10 +69,19 @@ class HomeClientFragment
 //            Toast.makeText(requireContext(), token, Toast.LENGTH_SHORT).show()
 //            })
 
-            adapter = HomeClientAdapter(sharedViewModel, viewLifecycleOwner)
+        //callback from adapter, pass object to sub_category
+            adapter = HomeClientAdapter(sharedViewModel){
+                view?.let { it1 ->
+                    Navigation.findNavController(it1)
+                        .navigate(HomeClientFragmentDirections.actionHomeClientFragmentToCategoryFragment(it))
+                }
+
+            }
+
             val recyclerView = binding.recyclerCategoryHome
             recyclerView.adapter = adapter
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
 
             //get list from viewModel
             lifecycleScope.launchWhenStarted {

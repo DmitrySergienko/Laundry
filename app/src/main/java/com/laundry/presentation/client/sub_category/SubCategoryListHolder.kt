@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.laundry.databinding.ClientCategoryItemBinding
 
 
-class CategoryListHolder(item: View) : RecyclerView.ViewHolder(item) {
+class SubCategoryListHolder(item: View) : RecyclerView.ViewHolder(item) {
     val binding = ClientCategoryItemBinding.bind(item)
 
 

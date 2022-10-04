@@ -1,10 +1,8 @@
 package com.laundry.presentation.client.category
 
+
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.LifecycleOwner
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.laundry.R
 import com.laundry.domain.entity.remote.CategoriesItem
@@ -12,7 +10,7 @@ import com.laundry.presentation.client.sub_category.SharedViewModel
 
 class HomeClientAdapter(
     private val sharedViewModel: SharedViewModel,
-    private val viewLifecycleOwner: LifecycleOwner
+    private var onItemClicked: ((CategoriesItem: CategoriesItem) -> Unit) //callback in fragment
 
 ) : RecyclerView.Adapter<HomeClientHolder>() {
 
@@ -29,34 +27,37 @@ class HomeClientAdapter(
     override fun onBindViewHolder(holder: HomeClientHolder, position: Int) {
 
         val categoryItem = itemList[position]
-        //categoryItem.image?.let { holder.binding.imageViewHome.setImageResource(it.toInt()) }
+
+        //categoryItem.image?.toInt()?.let { holder.binding.imageViewHome.setImageResource(it) }
         holder.binding.textViewMain.text = categoryItem.text
         //holder.binding.textViewQuantity.text = categoryItem.quantity.toString()
 
         //get count of click from share view model
-        sharedViewModel.amount.observe(viewLifecycleOwner) { amount ->
+//        sharedViewModel.amount.observe(viewLifecycleOwner) { amount ->
+//
+//            if (amount == 0) {
+//                holder.binding.cardViewOrder.visibility = View.INVISIBLE
+//                holder.binding.textViewMain.visibility = View.VISIBLE
+//            } else {
+//                holder.binding.textViewQuantity.setText(amount.toString())
+//
+//                val result = amount * 100
+//                holder.binding.textViewPrice.text = result.toString()
+//            }
+//
+//
+//        }
 
-            if (amount == 0) {
-                holder.binding.cardViewOrder.visibility = View.INVISIBLE
-                holder.binding.textViewMain.visibility = View.VISIBLE
-            } else {
-                holder.binding.textViewQuantity.setText(amount.toString())
-
-                val result = amount * 100
-                holder.binding.textViewPrice.text = result.toString()
-            }
-
+        //callback to fragment
+        holder.binding.rootRowLayout.setOnClickListener {
+            onItemClicked(categoryItem)
         }
 
-        navigateToSubCategory(holder,position)
-
-
+        // navigateToSubCategory(holder,position)
     }
-    private fun navigateToSubCategory(holder: HomeClientHolder, position: Int){
-        holder.binding.rootRowLayout.setOnClickListener {
 
-            Navigation.findNavController(it)
-                .navigate(R.id.action_homeClientFragment_to_categoryFragment)
+    private fun navigateToSubCategory(holder: HomeClientHolder, position: Int) {
+        holder.binding.rootRowLayout.setOnClickListener {
 
             //save count in shared View Model
             val itemPosition = position
@@ -71,10 +72,6 @@ class HomeClientAdapter(
 //        }
 
 
-//    fun setData(category: List<HomeClient>) {
-//        this.itemList.addAll(category)
-//        notifyDataSetChanged()
-//    }
     fun setDataFromApi(category: List<CategoriesItem>) {
         this.itemList.addAll(category)
         notifyDataSetChanged()
@@ -83,6 +80,5 @@ class HomeClientAdapter(
     override fun getItemCount(): Int {
         return itemList.size
     }
-
 
 }

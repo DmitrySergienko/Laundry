@@ -1,6 +1,7 @@
 package com.laundry.presentation.client.sub_category
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
@@ -8,21 +9,23 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.laundry.R
 import com.laundry.data.CategoryList
 import com.laundry.data.database.entities.CategoryEntity
 import com.laundry.databinding.FragmentCategoryBinding
+import com.laundry.domain.entity.remote.SubcategoriesItem
 import com.laundry.presentation.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CategoryFragment :
+class SubCategoryFragment :
     BaseFragment<FragmentCategoryBinding>(FragmentCategoryBinding::inflate) {
 
-    private var adapter: CategoryAdapter? = null
+    private var adapter: SubCategoryAdapter? = null
     private val fakeItemList = CategoryList()
-    private lateinit var viewModel: CategoryViewModel
+    private lateinit var viewModel: SubCategoryViewModel
 
     private val sharedViewModel: SharedViewModel by activityViewModels()
 
@@ -32,34 +35,37 @@ class CategoryFragment :
 
         recyclerView() // initRecyclerView()
         navigateToHome() // navigate to home
+        naviagteToHomePage() // navigate to home page
+        //insertListToDB(fakeItemList.list)
+        // cleanDataFromDB()
 
-       //insertListToDB(fakeItemList.list)
-       // cleanDataFromDB()
 
 
+        // val total = adapter?.getTotalAmount()
+        //save count in shared View Model
+        // total?.let { t -> sharedViewModel.saveItemCount(t) }
+
+    }
+
+    private fun naviagteToHomePage() {
         binding.submitButton.setOnClickListener {
-            val total = adapter?.getTotalAmount()
-            //save count in shared View Model
-            total?.let { t -> sharedViewModel.saveItemCount(t) }
-
-            findNavController().navigateUp() // navigate to home page
+            findNavController().navigateUp()
         }
     }
 
     private fun recyclerView() {
+        //get arguments (subcategory object from home fragment)
+        val args: SubCategoryFragmentArgs by navArgs()
 
         //recyclerView
-        adapter = CategoryAdapter()
+        adapter = SubCategoryAdapter()
         val recyclerView = binding.recyclerCategory
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        adapter?.setData(args.subCategoryArg.subcategories as List<SubcategoriesItem>)
         //viewModel
-        viewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)
-        viewModel.readAllData.observe(viewLifecycleOwner, Observer { category ->
-            adapter?.setData(category as MutableList<CategoryEntity>)
-
-        })
+        //viewModel = ViewModelProvider(this).get(SubCategoryViewModel::class.java)
     }
 
     private fun navigateToHome() {
@@ -80,7 +86,7 @@ class CategoryFragment :
         ).show()
     }
 
-    private fun insertListToDB(list: List<CategoryEntity>){
+    private fun insertListToDB(list: List<CategoryEntity>) {
         viewModel.insertCategoryList(list)
 
 

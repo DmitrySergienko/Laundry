@@ -11,7 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-class CategoryViewModel(application: Application):AndroidViewModel(application) {
+class SubCategoryViewModel(application: Application):AndroidViewModel(application) {
 
     val readAllData: LiveData<List<CategoryEntity>>
     private val repository: CategoryRep

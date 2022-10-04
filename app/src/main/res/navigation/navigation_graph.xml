@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/homeClientFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -42,7 +42,7 @@
             app:destination="@id/deliveryFragment" />
         <action
             android:id="@+id/action_homeClientFragment_to_categoryFragment"
-            app:destination="@id/categoryFragment"
+            app:destination="@id/subCategoryFragment"
             app:exitAnim="@android:anim/fade_out" />
         <argument
             android:name="currentCount"
@@ -82,8 +82,8 @@
             app:destination="@id/homeClientFragment" />
     </fragment>
     <fragment
-        android:id="@+id/categoryFragment"
-        android:name="com.laundry.presentation.client.sub_category.CategoryFragment"
+        android:id="@+id/subCategoryFragment"
+        android:name="com.laundry.presentation.client.sub_category.SubCategoryFragment"
         android:label="fragment_category"
         tools:layout="@layout/fragment_category" >
         <action
@@ -92,6 +92,9 @@
         <action
             android:id="@+id/action_categoryFragment_to_homeClientFragment2"
             app:destination="@id/homeClientFragment" />
+        <argument
+            android:name="subCategoryArg"
+            app:argType="com.laundry.domain.entity.remote.CategoriesItem" />
     </fragment>
     <fragment
         android:id="@+id/serviceProviderDetFragment"
