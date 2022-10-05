@@ -1,18 +1,14 @@
 package com.laundry.presentation.client.sub_category
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.laundry.R
-import com.laundry.data.CategoryList
 import com.laundry.data.database.entities.CategoryEntity
 import com.laundry.databinding.FragmentCategoryBinding
 import com.laundry.domain.entity.remote.SubcategoriesItem
@@ -24,7 +20,6 @@ class SubCategoryFragment :
     BaseFragment<FragmentCategoryBinding>(FragmentCategoryBinding::inflate) {
 
     private var adapter: SubCategoryAdapter? = null
-    private val fakeItemList = CategoryList()
     private lateinit var viewModel: SubCategoryViewModel
 
     private val sharedViewModel: SharedViewModel by activityViewModels()
@@ -32,13 +27,11 @@ class SubCategoryFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        naviagteToHomePage() // navigate to home page
+
+        navigateToHome() // navigate to home
 
         recyclerView() // initRecyclerView()
-        navigateToHome() // navigate to home
-        naviagteToHomePage() // navigate to home page
-        //insertListToDB(fakeItemList.list)
-        // cleanDataFromDB()
-
 
 
         // val total = adapter?.getTotalAmount()
@@ -54,16 +47,20 @@ class SubCategoryFragment :
     }
 
     private fun recyclerView() {
+
         //get arguments (subcategory object from home fragment)
         val args: SubCategoryFragmentArgs by navArgs()
 
-        //recyclerView
-        adapter = SubCategoryAdapter()
+        //itemCallback from adapter
+        adapter = SubCategoryAdapter() {
+
+        }
+
         val recyclerView = binding.recyclerCategory
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
         adapter?.setData(args.subCategoryArg.subcategories as List<SubcategoriesItem>)
+
         //viewModel
         //viewModel = ViewModelProvider(this).get(SubCategoryViewModel::class.java)
     }

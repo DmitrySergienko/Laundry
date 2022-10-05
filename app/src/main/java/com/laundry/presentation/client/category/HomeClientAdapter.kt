@@ -4,7 +4,9 @@ package com.laundry.presentation.client.category
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.laundry.R
+import com.laundry.di.BASE_URL
 import com.laundry.domain.entity.remote.CategoriesItem
 import com.laundry.presentation.client.sub_category.SharedViewModel
 
@@ -25,12 +27,17 @@ class HomeClientAdapter(
     }
 
     override fun onBindViewHolder(holder: HomeClientHolder, position: Int) {
-
         val categoryItem = itemList[position]
 
-        //categoryItem.image?.toInt()?.let { holder.binding.imageViewHome.setImageResource(it) }
+        val url = "$BASE_URL${categoryItem.image}"
+
+        holder.binding.imageViewHome.load(url.replace("public/",""))
         holder.binding.textViewMain.text = categoryItem.text
-        //holder.binding.textViewQuantity.text = categoryItem.quantity.toString()
+
+        //callback to fragment
+        holder.binding.rootRowLayout.setOnClickListener {
+            onItemClicked(categoryItem)
+        }
 
         //get count of click from share view model
 //        sharedViewModel.amount.observe(viewLifecycleOwner) { amount ->
@@ -44,32 +51,8 @@ class HomeClientAdapter(
 //                val result = amount * 100
 //                holder.binding.textViewPrice.text = result.toString()
 //            }
-//
-//
 //        }
-
-        //callback to fragment
-        holder.binding.rootRowLayout.setOnClickListener {
-            onItemClicked(categoryItem)
-        }
-
-        // navigateToSubCategory(holder,position)
     }
-
-    private fun navigateToSubCategory(holder: HomeClientHolder, position: Int) {
-        holder.binding.rootRowLayout.setOnClickListener {
-
-            //save count in shared View Model
-            val itemPosition = position
-            itemPosition?.let { t -> sharedViewModel.saveMainItem(t) }
-
-        }
-    }
-
-
-//        fun getTotalAmount(): Int {
-//            return itemList.sumOf { it.count }
-//        }
 
 
     fun setDataFromApi(category: List<CategoriesItem>) {
@@ -77,8 +60,22 @@ class HomeClientAdapter(
         notifyDataSetChanged()
     }
 
+
     override fun getItemCount(): Int {
         return itemList.size
     }
 
+
+    private fun navigateToSubCategory(holder: HomeClientHolder, position: Int) {
+        holder.binding.rootRowLayout.setOnClickListener {
+
+            //save count in shared View Model
+            val itemPosition = position
+            itemPosition?.let { t -> sharedViewModel.saveMainItem(t) }
+        }
+    }
+
+//        fun getTotalAmount(): Int {
+//            return itemList.sumOf { it.count }
+//        }
 }

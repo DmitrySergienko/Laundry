@@ -9,13 +9,13 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-//const val BASE_URL = "https://apex.oracle.com/"
+
 const val BASE_URL = "http://192.168.1.50:3000/"
+const val MOCK_URL = "https://0ed08567-e57e-4016-be91-8a08763be9ce.mock.pstmn.io"
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -23,19 +23,9 @@ const val BASE_URL = "http://192.168.1.50:3000/"
 object AppEntryModule {
 
 
-
-    val loggingInterceptor: HttpLoggingInterceptor = HttpLoggingInterceptor()
-
-
-    //interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
     private val client = OkHttpClient.Builder().apply {
         addInterceptor(MyInterceptor())
-//        loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-//        addInterceptor(loggingInterceptor)
     }.build()
-
-
-
 
     @Provides
     @Singleton

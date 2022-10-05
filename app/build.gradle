@@ -59,7 +59,8 @@ android {
 
 dependencies {
 
-    //
+    //Coil image download
+    implementation("io.coil-kt:coil:1.4.0")
 
     // Preferences DataStore
     implementation "androidx.datastore:datastore-preferences:1.0.0-alpha04"
