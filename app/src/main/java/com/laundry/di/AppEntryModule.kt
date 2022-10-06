@@ -1,9 +1,6 @@
 package com.laundry.di
 
-import com.laundry.data.remote.api.AuthApi
-import com.laundry.data.remote.api.CategoryApi
-import com.laundry.data.remote.api.MyInterceptor
-import com.laundry.data.remote.api.SignupApi
+import com.laundry.data.remote.api.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -48,6 +45,10 @@ object AppEntryModule {
     @Provides
     @Singleton
     fun provideApiForCategory(retrofit: Retrofit) = retrofit.create(CategoryApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideApiForSaveOrder(retrofit: Retrofit) = retrofit.create(SaveOrderApi::class.java)
 
 
 }

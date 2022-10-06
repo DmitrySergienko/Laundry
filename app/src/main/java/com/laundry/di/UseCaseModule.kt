@@ -2,9 +2,11 @@ package com.laundry.di
 
 import com.laundry.data.remote.repository.CategoryRepoImpl
 import com.laundry.data.remote.repository.EntranceRepoImpl
+import com.laundry.data.remote.repository.SaveOrderRepoImpl
 import com.laundry.data.remote.repository.SignupRepoImpl
 import com.laundry.domain.CategoryRepository
 import com.laundry.domain.EntranceRepository
+import com.laundry.domain.SaveOrderRepository
 import com.laundry.domain.SignupRepository
 import dagger.Binds
 import dagger.Module
@@ -27,5 +29,9 @@ abstract class UseCaseModule {
     @Binds
     @Singleton
     abstract fun bindCategoryUsecase(impl: CategoryRepoImpl): CategoryRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindSaveOrderUseCase(impl: SaveOrderRepoImpl): SaveOrderRepository
 
 }
