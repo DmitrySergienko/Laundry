@@ -28,7 +28,7 @@ object AppEntryModule {
     @Singleton
     fun provideRetrofit(): Retrofit =
         Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(MOCK_URL)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -50,5 +50,7 @@ object AppEntryModule {
     @Singleton
     fun provideApiForSaveOrder(retrofit: Retrofit) = retrofit.create(SaveOrderApi::class.java)
 
-
+    @Provides
+    @Singleton
+    fun provideApiForOrderHistory(retrofit: Retrofit) = retrofit.create(OrderHistoryApi::class.java)
 }

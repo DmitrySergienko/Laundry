@@ -1,6 +1,7 @@
 package com.laundry.presentation.client.category
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
@@ -13,6 +14,8 @@ import com.laundry.R
 import com.laundry.data.repository.datastore.DataStoreViewModel
 import com.laundry.databinding.FragmentHomeClientBinding
 import com.laundry.domain.entity.remote.CategoriesItem
+import com.laundry.domain.entity.remote.Registration
+import com.laundry.domain.entity.remote.SaveOrder
 import com.laundry.presentation.BaseFragment
 import com.laundry.presentation.client.sub_category.SharedViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -39,6 +42,30 @@ class HomeClientFragment
 
         showClientName() //save Client Name in DataStore and show in the field
 
+
+        //Order history test
+        viewModel.getOrderHistory()
+        lifecycleScope.launchWhenStarted {
+            viewModel.orderHistory.collectLatest {
+
+                Log.d("OrderHistoryLog", it.orderHistoryResponse.toString())
+
+            }
+        }
+        //save order test
+
+        val myPost =SaveOrder()
+
+        viewModel.getSaveOrder(myPost)
+        lifecycleScope.launchWhenStarted {
+            viewModel.saveOrder.collectLatest {
+
+                Log.d("OrderHistoryLog", it.saveOrderResponse.toString())
+
+            }
+        }
+
+
     }
 
     private fun showClientName() {
@@ -51,7 +78,6 @@ class HomeClientFragment
 
     private fun recyclerView() {
         viewModel.getCategory()
-
 
         //callback from adapter, pass object to sub_category
         adapter = HomeClientAdapter(sharedViewModel) {
