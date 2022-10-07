@@ -33,11 +33,12 @@ class SubCategoryFragment :
 
         recyclerView() // initRecyclerView()
 
+        submitOrder() // save order and navigate to Home
 
-        // val total = adapter?.getTotalAmount()
+
         //save count in shared View Model
-        // total?.let { t -> sharedViewModel.saveItemCount(t) }
-
+        val total = adapter?.getTotalAmount()
+        total?.let { t -> sharedViewModel.saveItemCount(t) }
     }
 
     private fun naviagteToHomePage() {
@@ -72,6 +73,21 @@ class SubCategoryFragment :
                     .navigate(R.id.action_categoryFragment_to_homeClientFragment)
             }
         }
+    }
+
+    private fun submitOrder(){
+
+        binding.submitButton.setOnClickListener {
+            //save count in shared View Model
+            val total = adapter?.getTotalAmount()
+            total?.let { t -> sharedViewModel.saveItemCount(t) }
+
+            view?.let { it1 ->
+                Navigation.findNavController(it1)
+                    .navigate(R.id.action_categoryFragment_to_homeClientFragment)
+            }
+        }
+
     }
 
     private fun cleanDataFromDB() {

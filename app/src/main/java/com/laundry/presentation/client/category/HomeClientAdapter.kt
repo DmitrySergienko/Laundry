@@ -2,7 +2,10 @@ package com.laundry.presentation.client.category
 
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.ViewTreeLifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.laundry.R
@@ -12,6 +15,7 @@ import com.laundry.presentation.client.sub_category.SharedViewModel
 
 class HomeClientAdapter(
     private val sharedViewModel: SharedViewModel,
+    private val viewLifecycleOwner: LifecycleOwner,
     private var onItemClicked: ((CategoriesItem: CategoriesItem) -> Unit) //callback in fragment
 
 ) : RecyclerView.Adapter<HomeClientHolder>() {
@@ -40,18 +44,18 @@ class HomeClientAdapter(
         }
 
         //get count of click from share view model
-//        sharedViewModel.amount.observe(viewLifecycleOwner) { amount ->
-//
-//            if (amount == 0) {
-//                holder.binding.cardViewOrder.visibility = View.INVISIBLE
-//                holder.binding.textViewMain.visibility = View.VISIBLE
-//            } else {
-//                holder.binding.textViewQuantity.setText(amount.toString())
-//
-//                val result = amount * 100
-//                holder.binding.textViewPrice.text = result.toString()
-//            }
-//        }
+        sharedViewModel.amount.observe(viewLifecycleOwner) { amount ->
+
+            if (amount == 0) {
+                holder.binding.cardViewOrder.visibility = View.INVISIBLE
+                holder.binding.textViewMain.visibility = View.VISIBLE
+            } else {
+                holder.binding.textViewQuantity.setText(amount.toString())
+
+                val result = amount * 100
+                holder.binding.textViewPrice.text = result.toString()
+            }
+        }
     }
 
 

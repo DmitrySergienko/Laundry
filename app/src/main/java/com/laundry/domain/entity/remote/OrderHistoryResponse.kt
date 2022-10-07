@@ -11,29 +11,29 @@ data class OrderHistoryResponse(
 	val orderHistoryResponse: List<OrderHistoryResponseItem?>? = null
 ) : Parcelable
 
-//@Parcelize
-//data class DataItem(
-//
-//	@field:SerializedName("address")
-//	val address: List<AddressItem?>? = null,
-//
-//	@field:SerializedName("total_amount")
-//	val totalAmount: Int? = null,
-//
-//	@field:SerializedName("total_quantity")
-//	val totalQuantity: Int? = null,
-//
-//	@field:SerializedName("order")
-//	val order: List<OrderItem?>? = null
-//) : Parcelable
+@Parcelize
+data class DataItem(
 
+	@field:SerializedName("address")
+	val address: List<AddressItem?>? = null,
+
+	@field:SerializedName("total_amount")
+	val totalAmount: Int? = null,
+
+	@field:SerializedName("total_quantity")
+	val totalQuantity: Int? = null,
+
+	@field:SerializedName("order")
+	val order: List<OrderItem?>? = null
+) : Parcelable
+//
 //@Parcelize
 //data class AddressItem(
 //
 //	@field:SerializedName("address1")
 //	val address1: String? = null
 //) : Parcelable
-
+//
 //@Parcelize
 //data class OrderItem(
 //

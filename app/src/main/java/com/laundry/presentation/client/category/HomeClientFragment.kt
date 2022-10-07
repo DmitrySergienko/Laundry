@@ -48,19 +48,17 @@ class HomeClientFragment
         lifecycleScope.launchWhenStarted {
             viewModel.orderHistory.collectLatest {
 
-                Log.d("OrderHistoryLog", it.orderHistoryResponse.toString())
+                Log.d("TestLog", it.orderHistoryResponse.toString())
 
             }
         }
         //save order test
-
         val myPost =SaveOrder()
-
         viewModel.getSaveOrder(myPost)
         lifecycleScope.launchWhenStarted {
             viewModel.saveOrder.collectLatest {
 
-                Log.d("OrderHistoryLog", it.saveOrderResponse.toString())
+                Log.d("TestLog", it.saveOrderResponse.toString())
 
             }
         }
@@ -80,7 +78,7 @@ class HomeClientFragment
         viewModel.getCategory()
 
         //callback from adapter, pass object to sub_category
-        adapter = HomeClientAdapter(sharedViewModel) {
+        adapter = HomeClientAdapter(sharedViewModel,viewLifecycleOwner) {
             view?.let { it1 ->
                 Navigation.findNavController(it1)
                     .navigate(

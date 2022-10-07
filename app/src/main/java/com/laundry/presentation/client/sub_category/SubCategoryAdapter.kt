@@ -75,7 +75,6 @@ class SubCategoryAdapter(
             }
         }
 
-
         //callback to fragment
         holder.binding.rootSubCategory.setOnClickListener {
             onItemClicked(categoryItem)
@@ -83,10 +82,9 @@ class SubCategoryAdapter(
     }
 
 
-//    fun getTotalAmount(): Int {
-//        return itemList.sumOf { it.count }
-//    }
-
+    fun getTotalAmount(): Int {
+        return itemList.sumOf { it.count }
+    }
 
     fun setData(category: List<SubcategoriesItem>) {
         this.itemList.addAll(category)
