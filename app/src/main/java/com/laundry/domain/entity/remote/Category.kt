@@ -27,7 +27,10 @@ data class SubcategoriesItem(
 	val text: String? = null,
 
 	@field:SerializedName("isActive")
-	val isActive: Int? = null
+	val isActive: Int? = null,
+
+	var count: Int = 0
+
 ) : Parcelable
 
 @Parcelize

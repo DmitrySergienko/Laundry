@@ -14,12 +14,13 @@ class SubCategoryAdapter(
 ) : RecyclerView.Adapter<SubCategoryListHolder>() {
 
     private var itemList = mutableListOf<SubcategoriesItem>()
-    var count = 0
+
     var activation = false
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SubCategoryListHolder {
         return SubCategoryListHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.client_category_item, parent, false)
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.client_category_item, parent, false)
         )
 
     }
@@ -30,36 +31,49 @@ class SubCategoryAdapter(
 
         val url = "$BASE_URL${categoryItem.image}"
 
-        holder.binding.imageViewPic.load(url.replace("public/",""))
+        holder.binding.imageViewPic.load(url.replace("public/", ""))
         holder.binding.textViewName.text = categoryItem.text
-        holder.binding.textViewCount.text = count.toString()
+        holder.binding.textViewCount.text = categoryItem.count.toString()
         holder.binding.checkBox.isChecked = activation
 
-//        holder.binding.buttonPlus.setOnClickListener {
-//            count += 1
-//            notifyItemChanged(position)
-//            activation = true
-//        }
-//        holder.binding.buttonMinus.setOnClickListener {
-//            if (count > 0) {
-//                count -= 1
-//                notifyItemChanged(position)
-//            }else activation = false
-//        }
-//        holder.binding.checkBox.setOnClickListener {
-//            when(count){
-//                0 -> {
-//                    count += 1
-//                    holder.binding.textViewCount.text = "1"
-//                    holder.binding.checkBox.isChecked
-//                }
-//                else -> {
-//                    holder.binding.textViewCount.text = "0"
-//                    count = 0
-//                    holder.binding.checkBox.isChecked = false
-//                }
-//            }
-//        }
+        holder.binding.buttonPlus.setOnClickListener {
+            categoryItem.count += 1
+            notifyItemChanged(position)
+            activation = true
+        }
+        holder.binding.buttonMinus.setOnClickListener {
+            when (categoryItem.count) {
+                0 -> {
+                    categoryItem.count = 0
+                    notifyItemChanged(position)
+                }
+                1 -> {
+                    categoryItem.count -= 1
+                    notifyItemChanged(position)
+                    activation = false
+                }
+                in 1..Int.MAX_VALUE -> {
+                    categoryItem.count -= 1
+                    notifyItemChanged(position)
+                }
+
+                else -> activation = false
+            }
+        }
+        holder.binding.checkBox.setOnClickListener {
+            when (categoryItem.count) {
+                0 -> {
+                    categoryItem.count += 1
+                    holder.binding.textViewCount.text = "1"
+                    holder.binding.checkBox.isChecked
+                }
+                else -> {
+                    holder.binding.textViewCount.text = "0"
+                    categoryItem.count = 0
+                    holder.binding.checkBox.isChecked = false
+                }
+            }
+        }
 
 
         //callback to fragment

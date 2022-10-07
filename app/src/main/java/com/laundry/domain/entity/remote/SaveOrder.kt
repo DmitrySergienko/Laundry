@@ -14,44 +14,6 @@ data class SaveOrder(
 	val statusCode: String? = null
 ) : Parcelable
 
-//@Parcelize
-//data class CategoriesItem(
-//
-//	@field:SerializedName("image")
-//	val image: String? = null,
-//
-//	@field:SerializedName("question")
-//	val question: String? = null,
-//
-//	@field:SerializedName("id")
-//	val id: Int? = null,
-//
-//	@field:SerializedName("isActive")
-//	val isActive: Int? = null,
-//
-//	@field:SerializedName("subcategories")
-//	val subcategories: List<SubcategoriesItem?>? = null,
-//
-//	@field:SerializedName("text")
-//	val text: String? = null
-//) : Parcelable
-
-//@Parcelize
-//data class SubcategoriesItem(
-//
-//	@field:SerializedName("image")
-//	val image: String? = null,
-//
-//	@field:SerializedName("id")
-//	val id: Int? = null,
-//
-//	@field:SerializedName("text")
-//	val text: String? = null,
-//
-//	@field:SerializedName("isActive")
-//	val isActive: Int? = null
-//) : Parcelable
-
 @Parcelize
 data class DataItem(
 
