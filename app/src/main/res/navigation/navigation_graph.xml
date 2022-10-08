@@ -94,7 +94,11 @@
             app:destination="@id/homeClientFragment" />
         <argument
             android:name="subCategoryArg"
-            app:argType="com.laundry.domain.entity.remote.CategoriesItem" />
+            app:argType="com.laundry.domain.entity.remote.SubcategoriesItem[]" />
+        <argument
+            android:name="testInt"
+            app:argType="integer"
+            android:defaultValue="1" />
     </fragment>
     <fragment
         android:id="@+id/serviceProviderDetFragment"
