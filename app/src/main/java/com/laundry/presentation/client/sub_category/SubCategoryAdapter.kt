@@ -26,11 +26,9 @@ class SubCategoryAdapter(
     }
 
     override fun onBindViewHolder(holder: SubCategoryListHolder, position: Int) {
-
         val categoryItem = itemList[position]
 
         val url = "$BASE_URL${categoryItem.image}"
-
         holder.binding.imageViewPic.load(url.replace("public/", ""))
         holder.binding.textViewName.text = categoryItem.text
         holder.binding.textViewCount.text = categoryItem.count.toString()

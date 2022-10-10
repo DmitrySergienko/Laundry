@@ -7,4 +7,5 @@ import kotlinx.coroutines.flow.Flow
 interface CategoryRepository {
 
     suspend fun getCategory(): Flow<DataState<CategoryResponse>>
+
 }

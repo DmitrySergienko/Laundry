@@ -13,6 +13,7 @@ import com.laundry.data.database.entities.CategoryEntity
 import com.laundry.databinding.FragmentCategoryBinding
 import com.laundry.domain.entity.remote.SubcategoriesItem
 import com.laundry.presentation.BaseFragment
+import com.laundry.presentation.client.SharedViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -62,8 +63,6 @@ class SubCategoryFragment :
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         adapter?.setData(args.subCategoryArg.subcategories as List<SubcategoriesItem>)
 
-        //viewModel
-        //viewModel = ViewModelProvider(this).get(SubCategoryViewModel::class.java)
     }
 
     private fun navigateToHome() {
@@ -87,7 +86,6 @@ class SubCategoryFragment :
                     .navigate(R.id.action_categoryFragment_to_homeClientFragment)
             }
         }
-
     }
 
     private fun cleanDataFromDB() {
@@ -104,5 +102,4 @@ class SubCategoryFragment :
 
 
     }
-
 }

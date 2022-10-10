@@ -16,7 +16,7 @@ import com.laundry.databinding.FragmentHomeClientBinding
 import com.laundry.domain.entity.remote.CategoriesItem
 import com.laundry.domain.entity.remote.SaveOrder
 import com.laundry.presentation.BaseFragment
-import com.laundry.presentation.client.sub_category.SharedViewModel
+import com.laundry.presentation.client.SharedViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
@@ -51,6 +51,7 @@ class HomeClientFragment
 
             }
         }
+
         //save order test
         val myPost =SaveOrder()
         viewModel.getSaveOrder(myPost)
@@ -61,16 +62,14 @@ class HomeClientFragment
 
             }
         }
-
-
     }
 
     private fun showClientName() {
+        //read client name from Store ViewModel
         dataStoreViewModel = ViewModelProvider(this).get(DataStoreViewModel::class.java)
         dataStoreViewModel.readFromDataStore.observe(viewLifecycleOwner, { myName ->
             binding.textViewClientName.text = myName
         })
-
     }
 
     private fun recyclerView() {
@@ -86,7 +85,6 @@ class HomeClientFragment
                         )
                     )
             }
-
         }
 
         val recyclerView = binding.recyclerCategoryHome
@@ -137,11 +135,8 @@ class HomeClientFragment
                         "TO MAKE AN ORDER PLEASE CHOOSE AT LEAST ONE ITEM",
                         Toast.LENGTH_SHORT
                     ).show()
-
                 }
             }
         }
     }
-
-
 }

@@ -10,7 +10,7 @@ import coil.load
 import com.laundry.R
 import com.laundry.di.BASE_URL
 import com.laundry.domain.entity.remote.CategoriesItem
-import com.laundry.presentation.client.sub_category.SharedViewModel
+import com.laundry.presentation.client.SharedViewModel
 
 class HomeClientAdapter(
     private val sharedViewModel: SharedViewModel,
@@ -21,19 +21,16 @@ class HomeClientAdapter(
 
     private var itemList = mutableListOf<CategoriesItem>()
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeClientHolder {
         return HomeClientHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.home_client_item, parent, false)
         )
-
     }
 
     override fun onBindViewHolder(holder: HomeClientHolder, position: Int) {
         val categoryItem = itemList[position]
 
         val url = "$BASE_URL${categoryItem.image}"
-
         holder.binding.imageViewHome.load(url.replace("public/",""))
         holder.binding.textViewMain.text = categoryItem.text
 
@@ -57,28 +54,21 @@ class HomeClientAdapter(
         }
     }
 
-
     fun setDataFromApi(category: List<CategoriesItem>) {
         this.itemList.addAll(category)
         notifyDataSetChanged()
     }
 
-
     override fun getItemCount(): Int {
         return itemList.size
     }
 
-
-    private fun navigateToSubCategory(holder: HomeClientHolder, position: Int) {
-        holder.binding.rootRowLayout.setOnClickListener {
-
-            //save count in shared View Model
-            val itemPosition = position
-            itemPosition?.let { t -> sharedViewModel.saveMainItem(t) }
-        }
-    }
-
-//        fun getTotalAmount(): Int {
-//            return itemList.sumOf { it.count }
+//    private fun navigateToSubCategory(holder: HomeClientHolder, position: Int) {
+//        holder.binding.rootRowLayout.setOnClickListener {
+//
+//            //save count in shared View Model
+//            val itemPosition = position
+//            itemPosition?.let { t -> sharedViewModel.saveMainItem(t) }
 //        }
+//    }
 }
