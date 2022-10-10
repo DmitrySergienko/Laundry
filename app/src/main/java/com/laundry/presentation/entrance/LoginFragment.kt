@@ -77,6 +77,9 @@ class LoginFragment : Fragment() {
                             ViewModelProvider(this@LoginFragment).get(DataStoreViewModel::class.java)
                         dataStoreViewModel.saveToDataStore(it.RESPONSE_DATA?.FULL_NAME.toString())
 
+                        //save token in DataStore
+                        dataStoreViewModel.
+
                         if (it1 != null) {
                             Navigation.findNavController(it1)
                                 .navigate(R.id.action_mainFragment_to_homeClientFragment)

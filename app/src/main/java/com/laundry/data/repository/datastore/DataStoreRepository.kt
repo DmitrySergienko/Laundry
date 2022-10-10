@@ -13,21 +13,32 @@ import kotlinx.coroutines.flow.map
 import java.io.IOException
 
 const val PREFERENCE_NAME = "my_preference"
+const val PREFERENCE_TOKEN = "token"
 
 class DataStoreRepository(context: Context) {
 
     private object PrefernceKey {
         val name = preferencesKey<String>("my_name")
+        val token = preferencesKey<String>("token")
 
     }
 
     private val dataStore: DataStore<Preferences> = context.createDataStore(
         name = PREFERENCE_NAME
     )
+    private val dataStoreToken: DataStore<Preferences> = context.createDataStore(
+        name = PREFERENCE_TOKEN
+    )
 
     suspend fun saveInDataStore(value: String) {
         dataStore.edit { preference ->
             preference[PrefernceKey.name] = value
+
+        }
+    }
+    suspend fun saveTokenDataStore(value: String) {
+        dataStoreToken.edit { preference ->
+            preference[PrefernceKey.token] = value
 
         }
     }
@@ -47,33 +58,23 @@ class DataStoreRepository(context: Context) {
 
         }
 
-//    suspend fun save(key: String, value: String) {
-//        val dataStoreKey = preferencesKey<String>(key)
-//        dataStore.edit { settings ->
-//            settings[dataStoreKey] = value
-//        }
-//    }
-//    suspend fun read(key: String): String? {
-//        val dataStoreKey = preferencesKey<String>(key)
-//        val preferences = dataStore.data.first()
-//        return preferences[dataStoreKey]
-//    }
+    val readTokenDataStore: Flow<String> = dataStoreToken.data
+        .catch { exception ->
+            if (exception is IOException) {
+                // Log.d("DataStore", exception.message.toString())
+                emit(emptyPreferences())
+            } else {
+                throw exception
+            }
+        }
+        .map { preference->
+            val defaultValue = preference[PrefernceKey.name] ?: "no token saved"
+            defaultValue
+
+        }
+
 
 }
 
-//  binding.btnSave.setOnClickListener {
-//            lifecycleScope.launch {
-//                save(
-//                        binding.etSaveKey.text.toString(),
-//                        binding.etSaveValue.text.toString()
-//                )
-//            }
-//        }
-//
-//        binding.btnRead.setOnClickListener {
-//            lifecycleScope.launch {
-//                val value = read(binding.etReadkey.text.toString())
-//                binding.tvReadValue.text = value ?: "No value found"
-//            }
-//        }
+
 
