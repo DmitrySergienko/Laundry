@@ -5,8 +5,8 @@ import com.google.gson.annotations.SerializedName
 data class CategoryResponse(
 
     @field:SerializedName("statusCode")
-    val pLOGIN_FLAG: Int? = null,
+    val LOGIN_FLAG: Int? = null,
 
     @field:SerializedName("data")
-    val pDATA: Data? = null,
+    val DATA: Data? = null,
 )

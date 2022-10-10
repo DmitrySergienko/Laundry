@@ -5,5 +5,5 @@ import com.google.gson.annotations.SerializedName
 class RegistrationResponse {
 
     @field:SerializedName("statusCode")
-    val pLOGIN_FLAG: Int? = null
+    val LOGIN_FLAG: Int? = null
 }

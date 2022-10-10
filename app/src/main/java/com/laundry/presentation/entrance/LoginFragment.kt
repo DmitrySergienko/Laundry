@@ -69,13 +69,13 @@ class LoginFragment : Fragment() {
         lifecycleScope.launchWhenStarted {
             viewModel.login.collectLatest {
 
-                if (it.pLOGIN_FLAG == 200) {
+                if (it.LOGIN_FLAG == 200) {
                     view.let { it1 ->
 
                         //save Client Name in DataStore
                         dataStoreViewModel =
                             ViewModelProvider(this@LoginFragment).get(DataStoreViewModel::class.java)
-                        dataStoreViewModel.saveToDataStore(it.pRESPONSE_DATA?.pFULL_NAME.toString())
+                        dataStoreViewModel.saveToDataStore(it.RESPONSE_DATA?.FULL_NAME.toString())
 
                         if (it1 != null) {
                             Navigation.findNavController(it1)

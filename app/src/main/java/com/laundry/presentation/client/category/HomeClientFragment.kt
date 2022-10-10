@@ -98,9 +98,9 @@ class HomeClientFragment
         lifecycleScope.launchWhenStarted {
             viewModel.category.collectLatest {
 
-                if (it.pLOGIN_FLAG == 200) {
+                if (it.LOGIN_FLAG == 200) {
                     view.let { it1 ->
-                        val categoryList = it.pDATA?.categories
+                        val categoryList = it.DATA?.categories
                         adapter?.setDataFromApi(categoryList as List<CategoriesItem>)
                     }
                 } else {

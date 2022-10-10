@@ -79,7 +79,7 @@ private fun initSignup() {
 
             lifecycleScope.launchWhenStarted {
                 viewModel.signup.collectLatest {
-                    when (it.pLOGIN_FLAG) {
+                    when (it.LOGIN_FLAG) {
                         200 -> {
                             Log.d("VVV", "is success from Signup Fragment$it")
                             view?.let { it1 ->
